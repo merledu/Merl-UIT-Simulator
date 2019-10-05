@@ -1,0 +1,42 @@
+{% load static %}
+
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link href="{%static 'css/bootstrap.min.css'%}" rel="stylesheet" type="text/css">
+    
+</head>
+<style media="screen">
+
+</style>
+
+<body>
+
+<!--border="1px solid" style="width:100%;"-->
+    <table class="table-dark" style="width:100%; border-bottom:1px solid;">
+
+        <tr class="bg-success">
+            <td><h3 style="text-decoration-line: underline; text-align:center;">Memory Address</h3></td>
+            <td><h3 style="text-decoration-line: underline; text-align:center;">Memory Value</h3></td>
+        </tr>
+        {% for i,j in data %}
+        
+        <tr  style="border-bottom:1px solid;">    
+            <td style="text-align:center; font-size:19px;" >{{i}}</td>
+            <td style="text-align:center;font-size:19px;">{{j}}</td>
+        </tr>
+
+        {%endfor%}
+
+
+        
+    </table>
+
+
+</body>
+
+</html>

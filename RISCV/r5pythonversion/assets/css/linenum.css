@@ -1,0 +1,23 @@
+#containernum
+{
+	width: 50px;
+	float: left;
+	color: Gray;
+	font-family: Courier New;
+	font-size: 14px;
+	overflow: hidden;
+	height: 600px;
+    position: relative;
+    top: 5px;
+}
+#divlines
+{
+	position: absolute;
+}
+#edit_area
+{
+	overflow-x: scroll;
+	height: 99px;
+	font-family: Courier New;
+	font-size: 14px;
+}

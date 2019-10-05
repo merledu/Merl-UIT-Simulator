@@ -1,0 +1,638 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>RISC-V UIT Edition</title>
+
+  <link href="{% static 'Pack/backii.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/lightbox.css' %}" rel="stylesheet">
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+  <link id="css-preset" href="{% static 'css/presets/preset1.css' %}" rel="stylesheet">
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+  <link href="{% static 'css/linenum.css' %}" rel="stylesheet">
+  <!--[if lt IE 9]>
+    <script src="{% static 'js/html5shiv.js' %}"></script>
+    <script src="{% static 'js/respond.min.js' %}"></script>
+    <script src="{% static 'Scripts/linenum.js' %}"></script>
+  <![endif]-->
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+<style>
+     .my-custom-scrollbar {
+position: relative;
+height: 100%;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+/* CSS for adding line numbers */
+#containernum
+{
+	width: 50px;
+	float: left;
+	color: Gray;
+	font-family: Courier New;
+	font-size: 16px;
+	overflow: hidden;
+	height: 600px;
+    position: relative;
+    top: 5px;
+}
+#containerbutton
+{
+	width: 50px;
+	float: left;
+	height: 5px;
+    position: relative;
+}
+#divlines
+{
+	position: absolute;
+}
+#editline
+{
+	overflow-x: scroll;
+	height: 99px;
+	font-family: Courier New;
+	font-size: 16px;
+
+</style>
+
+
+
+</head><!--/head-->
+
+<body>
+
+
+
+  <!--.preloader-->
+  <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
+  <!--/.preloader-->
+
+  <header id="home">
+    <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="item active" style="background-image: url({% static 'images/p1.jpg' %})">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">Welcome to <span>OXYGEN</span></h1>
+            <p class="animated fadeInRightBig">UIT-Edition RISC-V SIMULATOR</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#read">Start now</a>
+          </div>
+        </div>
+        <div class="item" style="background-image: url({% static 'images/p3.jpg' %})">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">Say Hello to <span>Oxygen</span></h1>
+            <p class="animated fadeInRightBig">UIT-Edition RISC-V SIMULATOR</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#read">Start now</a>
+          </div>
+        </div>
+        <div class="item" style="background-image: url({% static 'images/p2.jpg' %})">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">We are <span>MAT</span></h1>
+            <p class="animated fadeInRightBig">UIT-Edition RISC-V SIMULATOR</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#read">Start now</a>
+          </div>
+        </div>
+      </div>
+      <a class="left-control" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+      <a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
+
+      <a id="tohash" href="#read"><i class="fa fa-angle-down"></i></a>
+
+    </div><!--/#home-slider-->
+    <div class="main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">
+            <h1><img class="img-responsive" src="{% static 'images/logo.png' %}" alt="logo"></h1>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="scroll active"><a href="#home">Home</a></li>
+            <li class="scroll"><a href="#read">Editor</a></li>
+            <li class="scroll"><a href="#simulator">Simulator</a></li>
+            <li class="scroll"><a href="#about-us">About Us</a></li>
+            <li class="scroll"><a href="#team">Team</a></li>
+            <li class="scroll"><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div><!--/#main-nav-->
+  </header><!--/#home-->
+  <section id="read">
+    <form id="form" action="#simulator">
+      <div class="container">
+        <div id="containernum">
+          <div id="divlines">
+          </div>
+        </div>
+        <textarea id="editline" name="editor" style="width:80%; height:600px;" rows="100" placeholder="Write Code...... ">{{ code }}</textarea><br>
+        <div id="containerbutton">
+        </div>
+        <button ID="Button5" type="submit" style=" border-radius:0; color:#ffffff;  margin:0;" class="btn btn-success" Font-Bold="True" Width="267px" Height="37px">Execute</button>
+      </div>
+    </form>
+  </section><!--/#read-->
+  <section id="simulator">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-7">
+                  <div class="leftdiv"
+                  >
+               <div  class="row" style="margin-top:7px; ">
+                   <div style="width:100%; height:45px;" >
+                 <button ID="Button0" runat="server" style=" margin-left:20%; height:45px; align-items:center; " class="btn btn-primary" Font-Bold="True" >Start Simulation From Editor</button>
+                 <button ID="Button6" runat="server" Text="Cancel" style="margin-left:5%;border-radius:0;height:45px;" class="btn btn-primary" Font-Bold="True" >Cancel</button>
+                       </div>
+               </div>
+
+
+               <div  class="row" style="margin-top:7px;">
+                   <div class="col-12">
+
+                       <h1 class="text-primary">Risc-V Simulator </h1>
+                       <p class="text-success">It is an open-source hardware instruction set architecture (ISA) based on established reduced instruction set computer (RISC) principles. The project began in 2010 at the University of California, Berkeley, but many contributors are volunteers not affiliated with the university.</p>
+                       <p class="text-success">This Getting Started Guide will explain how to get started with developing for the free and open RISC-V ISA, both in simulation and on physical implementations.
+
+                           The Guide focuses on running standard operating systems - Zephyr and Linux - on popular RISC-V platforms with minimum effort.
+
+   It will be expanded with time to cover more platforms and scenarios.
+                       </p>
+                       </div>
+               </div>
+               <div  class="row" style="margin-top:7px;">
+                    <div class="col-12">
+                      <textarea id="TextArea1" name="fresult"  runat="server" style=" margin-top:4px; width:100%; height: 156px; " rows="6" placeholder="Output is Here">{{fresult}}{{error}}</textarea>
+                    </div>
+
+               </div>
+
+           </div>
+              </div>
+              <div class="col-sm-1">
+                  <div class="middiv"></div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="rightdiv" >
+
+               <div class="row" style="margin-top:5px;">
+                 <div class="col-sm-2">
+
+                 </div>
+                   <div class="col-md-4">
+                     <div class="leftdiv">
+                       <button  ID="Button7" class="btn btn-primary" Font-Bold="True" OnClientClick="return false;">Memory</button>
+                     </div>
+                   </div>
+                   <div class="col-sm-1">
+
+                 </div>
+                   <!--<div class="col-sm-4">
+                     <div class="middiv">
+                       <button ID="Button8"  class="btn btn-primary" Font-Bold="True" OnClientClick="return false;" >Cache</button>
+                     </div>
+                   </div>--->
+
+                   <div class="col-md-4">
+                     <div class="rightdiv">
+                       <button ID="Button9"  class="btn btn-primary" Font-Bold="True" OnClientClick="return false;" >Register</button>
+                     </div>
+
+                   </div>
+
+               </div>
+
+               <div class="row" style="background-color:#ffffff; margin-top:5px; height:440px;">
+
+                   <div id="hd" style="width:100%; height:440px; background-color:#74B2F1;" >
+                     <!-- Memory Block -->
+                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+                      <table class="table table-bordered table-dark table-striped mb-0">
+
+                        <!--Actual Code With Loop-->
+
+                        <tr class="bg-success">
+                          <td>
+                            <h3 style="text-decoration-line: underline; text-align:center;">Memory Address</h3>
+                          </td>
+                          <td>
+                            <h3 style="text-decoration-line: underline; text-align:center;">Memory Value</h3>
+                          </td>
+                        </tr>
+                          {% for k,l in data1 %}
+
+                          <tr style="border-bottom:1px solid;">
+                            <td style="text-align:center; font-size:19px;">{{k}}</td>
+                            <td style="text-align:center;font-size:19px;">{{l}}</td>
+                          </tr>
+
+                          {%endfor%}
+
+                      </table>
+
+                    </div>
+
+                   </div>
+                   <div id="hd1" style="width:100%; height:440px;  background-color:#CC89A3;" ></div>
+                   <div id="hd2" style="width:100%; height:440px; background-color: #DAF7A6;" >
+                       
+                    
+                    <!----
+                    Rough Task
+                    
+                  <textarea ID="TextBox2" runat="server" Height="437px" Width="896px" OnTextChanged="TextBox2_TextChanged"></textarea>
+                  -->
+
+                  <!--Static Rows And Column
+                   <tr>
+                          <td>Name</td>
+                          <td>Age</td>
+                        </tr>
+                    
+                        <tr>
+                          <td>A</td>
+                          <td>1</td>
+                        </tr>
+                    
+                        <tr>
+                          <td>B</td>
+                          <td>2</td>
+                        </tr>
+                    
+                        <tr>
+                          <td>C</td>
+                          <td>3</td>
+                        </tr>
+                    
+                        <tr>
+                          <td>D</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>D</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>D</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>D</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>D</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>D</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>D</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>D</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>D</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>D</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>D</td>
+                          <td>5</td>
+                        </tr>
+                    
+                  -->
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    
+                      <table class="table table-bordered table-dark table-striped mb-0">
+                    
+                        <!--Actual Code With Loop-->
+
+                        <tr class="bg-success">
+                          <td>
+                            <h3 style="text-decoration-line: underline; text-align:center;">Register Name</h3>
+                          </td>
+                          <td>
+                            <h3 style="text-decoration-line: underline; text-align:center;">Register Value</h3>
+                          </td>
+                        </tr>
+                          {% for i,j in data %}
+                          
+                          <tr style="border-bottom:1px solid;">
+                            <td style="text-align:center; font-size:19px;">{{j}}</td>
+                            <td style="text-align:center;font-size:19px;">{{i}}</td>
+                          </tr>
+                          
+                          {%endfor%}
+
+                      </table>
+                    
+                    </div>
+
+                   
+                  
+                  
+                  </div>
+
+               </div>
+
+           </div>
+              </div>
+          </div>
+      </div>
+  </section><!--/#simulator-->
+  <section id="about-us" class="parallax" style="background-image: url({% static 'images/p6.jpg' %});">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="about-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <h2>About us</h2>
+            <p>We are the students of Usman Institute of Technology, doing bachelors of computer science(4th year).
+We are doing this project as our final year project. our website is about the simulation of RISC-V ISA(Instruction Set Architecture).
+The main Purpose of making this simulator is to get familiar with RISC-V ISA(Instruction Set Architecture). </p>
+            <p>RISC-V is an open-source hardware instruction set architecture (ISA) based on established reduced instruction set computer (RISC) principles. The project began in 2010 at the University of California, Berkeley, but many contributors are volunteers not affiliated with the university.</p>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="our-skills wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+              <p class="lead">Our Experience</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="20">20%</div>
+              </div>
+            </div>
+            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="400ms">
+              <p class="lead">Web Design</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="75">75%</div>
+              </div>
+            </div>
+            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+              <p class="lead">Programming</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="90">90%</div>
+              </div>
+            </div>
+            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+              <p class="lead">Fun</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="85">85%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!--/#about-us-->
+
+  <section id="team">
+    <div class="container">
+      <div class="row">
+        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+          <h2>The Team</h2>
+        </div>
+      </div>
+      <div class="team-members">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="300ms">
+              <div class="member-image">
+                <img class="img-responsive" src="{% static 'images/team/ali.jpg' %}" alt="">
+              </div>
+              <div class="member-info">
+                <h3>Ali Hassan Ahmed Khan</h3>
+                <h4>Developer</h4>
+              </div>
+              <div class="social-icons">
+                <ul>
+                  <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                  <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
+              <div class="member-image">
+                <img class="img-responsive" src="{% static 'images/team/tayyab.jpeg' %}" alt="">
+              </div>
+              <div class="member-info">
+                <h3>Syed Tayyab Farooq</h3>
+                <h4>Developer</h4>
+              </div>
+              <div class="social-icons">
+                <ul>
+                  <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                  <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
+              <div class="member-image">
+                <img class="img-responsive" src="{% static 'images/team/minhaj.jpg' %}" alt="">
+              </div>
+              <div class="member-info">
+                <h3>Minhaj Ahmed</h3>
+                <h4>Developer</h4>
+              </div>
+              <div class="social-icons">
+                <ul>
+                  <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                  <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!--/#team-->
+
+  <section id="contact">
+    <div id="contact-us" class="parallax" style="background-image: url({% static 'images/p5.jpg' %});">
+      <div class="container">
+        <div class="row">
+          <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <h2>Contact Us</h2>
+          </div>
+        </div>
+        <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+          <div class="row">
+            <div class="col-sm-6">
+              <form id="main-contact-form" name="contact-form" method="post" action="#">
+                <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="text" name="name" class="form-control" placeholder="Name" required="required">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="email" name="email" class="form-control" placeholder="Email Address" required="required">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" name="subject" class="form-control" placeholder="Subject" required="required">
+                </div>
+                <div class="form-group">
+                  <textarea name="message" id="message" class="form-control" rows="4" placeholder="Enter your message" required="required"></textarea>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn-submit">Send Now</button>
+                </div>
+              </form>
+            </div>
+            <div class="col-sm-6">
+              <div class="contact-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <ul class="address">
+                  <li><i class="fa fa-map-marker"></i> <span> Address:</span> ST-13, Block 7, Gulshan-e-Iqbal, Abul Hasan Isphahani Road, Opposite Safari Park, Karachi 75300 </li>
+                  <li><i class="fa fa-phone"></i> <span> Phone:</span> +92 (213) 499 4305 </li>
+                  <li><i class="fa fa-envelope"></i> <span> Email:</span><a href="mailto:someone@.com"> info@uit.edu</a></li>
+                  <li><i class="fa fa-globe"></i> <span> Website:</span> <a href="#">https://www.uit.edu</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!--/#contact-->
+  <footer id="footer">
+    <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+      <div class="container text-center">
+        <div class="footer-logo">
+          <a href="index.html"><img class="img-responsive" src="{% static 'images/logo.png' %}" alt=""></a>
+        </div>
+        <div class="social-icons">
+          <ul>
+            <li><a class="envelope" href="#"><i class="fa fa-envelope"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a class="tumblr" href="#"><i class="fa fa-tumblr-square"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.inview.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/mousescroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.countTo.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/lightbox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#hd").show();
+            $("#hd1").hide();
+            $("#hd2").hide();
+        });
+    </script>
+    <script>
+            $(document).ready(function () {
+
+                $("#Button7").on('click', function () {
+                    $("#hd").show();
+                    $("#hd1").hide();
+                    $("#hd2").hide();
+                });
+            });
+
+        </script>
+    <script>
+                $(document).ready(function () {
+
+                    $("#Button8").on('click', function () {
+                        $("#hd").hide();
+                        $("#hd1").show();
+                        $("#hd2").hide();
+                    });
+                });
+
+        </script>
+    <script>
+                $(document).ready(function () {
+
+                    $("#Button9").on('click', function () {
+                        $("#hd").hide();
+                        $("#hd1").hide();
+                        $("#hd2").show();
+                    });
+                });
+
+        </script>
+  <!---- Script for adding line numbers--->
+  <script type="text/javascript">
+var lines = document.getElementById("divlines");
+var txtArea = document.getElementById("editline");
+window.onload = function() {
+    refreshlines();
+    txtArea.onscroll = function () {
+        lines.style.top = -(txtArea.scrollTop) + "px";
+        return true;
+    }
+    txtArea.onkeyup = function () {
+        refreshlines();
+        return true;
+    }
+}
+
+function refreshlines() {
+    var nLines = txtArea.value.split("\n").length;
+    lines.innerHTML = ""
+    for (i=1; i<=nLines; i++) {
+        lines.innerHTML = lines.innerHTML + i + "." + "<br />";
+    }
+    lines.style.top = -(txtArea.scrollTop) + "px";
+}
+</script>
+    <script src="{% static 'Scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'Pack/JQ.js' %}"></script>
+
+</body>
+</html>
