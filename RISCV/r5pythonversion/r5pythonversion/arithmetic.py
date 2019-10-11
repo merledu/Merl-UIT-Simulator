@@ -12,8 +12,14 @@ class Arithmetic(object):
     offset=""
     offset_val=0
     offset_shitf=1
-    for i in range(0, 32):
-        val.append(random.randint(1, 100))
+
+    val.append(0)
+    val.append(0)
+    val.append(2147483632)
+    val.append(268435456)
+    for i in range(4, 32):
+        val.append(0)
+        #val.append(random.randint(1, 100))
     memory_block = []
 
     list=[]
@@ -294,8 +300,8 @@ class I_type(Arithmetic):
             self.remi = True
             x = x[len(y) + 1:]
             return x
-        elif "ld" in x:
-            y = "ld"
+        elif "lw" in x:
+            y = "lw"
             self.load = True
             x = x[len(y) + 1:]
             return x
@@ -339,8 +345,8 @@ class I_type(Arithmetic):
 
     def getsdl(self,x):
         x = x.replace(" ","")
-        x = x.replace("[","")
-        x = x.replace("]", "")
+        x = x.replace("(","")
+        x = x.replace(")", "")
 
         self.dest, self.src1 = x.split(",")
 
@@ -458,7 +464,7 @@ class I_type(Arithmetic):
     def loadd(self,res):
     #print(self.mydix)
 
-        file_values=open("templates/m.txt","r")
+        file_values=open("/home/OxygenUIT/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
         #print(file_values.readable())
 
         list=[]
@@ -553,8 +559,8 @@ class S_type(Arithmetic):
 
     def getsds(self, x):
         x = x.replace(" ", "")
-        x = x.replace("[", "")
-        x = x.replace("]", "")
+        x = x.replace("(", "")
+        x = x.replace(")", "")
 
         self.dest, self.src1 = x.split(",")
 
@@ -616,7 +622,7 @@ class S_type(Arithmetic):
         self.mydix[hex(self.val[self.indexs1]+self.offset_val)] = int(self.val[self.indexd])
 
 
-        filevalue1=open("templates\m.txt","w")
+        filevalue1=open("/home/OxygenUIT/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","w")
         for x in range(0,512):
             filevalue1.writelines(str(self.mydix.get(hex(x)))+'\n')
         filevalue1.close()
@@ -629,4 +635,3 @@ class S_type(Arithmetic):
         print("##############################")
         #print(self.memory_block[self.val[self.indexs1]])
         #print(self.val)
-
