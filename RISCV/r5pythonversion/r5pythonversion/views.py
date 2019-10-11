@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from . import arithmetic
-
+import re
 def read(request):
     return render(request, 'test.html')
 
@@ -22,7 +22,7 @@ def index(request):
               'x25','x26','x27','x28','x29','x30','x31']
 
     ##### This Is Memory Block START
-    file_values=open("templates\m.txt","r")
+    file_values=open("/home/OxygenUIT/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
         #print(file_values.readable())
     list=[]
     for x in range(0,512):
@@ -54,12 +54,13 @@ def execute(whole_code):
     code_line = []
     #code_line = whole_code.split(':')
     #code_line = code_line.split(';')
-    whole_code=whole_code.replace('\r\n', '')
-    whole_code= whole_code.replace(';', ':')
-    code_line = whole_code.split(':')
+    #whole_code=whole_code.replace('\r\n', '')
+    #whole_code= whole_code.replace(';', ':')
+    #code_line = whole_code.split(':')
+    whole_code = whole_code.replace('\r\n', '\n')
+    code_line = [line for line in whole_code.split('\n') if line.strip() != '']
 
-
-    code_line = code_line[:-1]
+    #code_line = code_line[:-1]
     r_type = []
     i_type = []
     s_type = []
@@ -67,10 +68,21 @@ def execute(whole_code):
     count_r = 0
     count_s = 0
     vari = 0
+    nxt = 0
+    r_ins = ['add', 'sub', 'mul','div','rem','xor','or','and','sll','srl','sra','sltu','slt']
+    i_ins = ['lb','lh','lbu','lhu','slli','srli','srai','addi','subi','muli','divi','remi','xori','andi','ori','slti','sltiu','fence','fence.i','scall','sbreak']
+    #arithmetic.Arithmetic.val.append(2147483632)
+    #arithmetic.Arithmetic.val.append(268435456)
     for i in range(vari, len(code_line)):
+        if vari == len(code_line):
+            break
         x = code_line[vari]
+        x = x.lower()
         x = x.strip()
-        if "addi" in x or "subi" in x or "muli" in x or "divi" in x or "remi" in x or "ori" in x or "andi" in x or "xori" in x or "slli" in x or "srli" in x or "srai" in x:
+        m = re.search(r'\w+',x)
+        m = m.group()
+        print(m)
+        if m in i_ins:
             i_type.append(arithmetic.I_type())
             print(len(i_type))
             # i_type[i].val = arithmetic.Arithmetic.val
@@ -80,7 +92,7 @@ def execute(whole_code):
             if vari < len(code_line)-1:
                 vari+=1
             #arithmetic.Arithmetic.val = i_type[i].val
-        elif "ld" in x:
+        elif "lw" in x:
             i_type.append(arithmetic.I_type())
             print(len(i_type))
             # i_type[i].val = arithmetic.Arithmetic.val
@@ -102,22 +114,28 @@ def execute(whole_code):
 
         # UJ Type Instruction
         elif "jal" in x:
-            x = x[5:]
+            x = x[4:]
+            nxt = vari + 1
+            arithmetic.Arithmetic.val[1] = nxt
             for j in range(len(code_line)):
-                if x in code_line[j] and (not ("jump" in code_line[j])):
-                    code_line[j] = code_line[j].split(":")
+                if x in code_line[j]: #and (not ("jal" in code_line[j])):
+                    #code_line[j] = code_line[j].split(":")
                     vari = j+1
+        elif "ret" in x:
+            vari = arithmetic.Arithmetic.val[1]
+        elif "ebreak" in x:
+            break
         else:
             r_type.append(arithmetic.R_type())
             print(len(r_type))
             # r_type[i].val = arithmetic.Arithmetic.val
             x = r_type[count_r].getoperator(x)
             r_type[count_r].getsd(x)
-            count_r+=1
+            count_r += 1
             if vari < len(code_line)-1:
-                vari+=1
+                vari += 1
             #arithmetic.Arithmetic.val = r_type[i].val
-
+        arithmetic.Arithmetic.val[0] = 0
     final_result = arithmetic.Arithmetic.val[arithmetic.Arithmetic.indexd]
     print(final_result)
     return final_result
@@ -127,7 +145,7 @@ def showmemory(request):
     #print(arithmetic.Arithmetic.listkey)
     #print(arithmetic.Arithmetic.listvalue)
 
-    file_values=open("templates\m.txt","r")
+    file_values=open("/home/OxygenUIT/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
         #print(file_values.readable())
     list=[]
     for x in range(0,512):
