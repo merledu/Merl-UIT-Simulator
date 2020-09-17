@@ -26,6 +26,15 @@
           <option value="E501" />
           <option value="W29" />
           <option value="E501" />
+          <option value="E117" />
+          <option value="E302" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N801" />
         </list>
       </option>
     </inspection_tool>

@@ -5,30 +5,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>RISC-V UIT Edition</title>
-
-  <link href="{% static 'Pack/backii.css' %}" rel="stylesheet" type="text/css" />
-  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
-  <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/lightbox.css' %}" rel="stylesheet">
-  <link href="{% static 'css/main.css' %}" rel="stylesheet">
-  <link id="css-preset" href="{% static 'css/presets/preset1.css' %}" rel="stylesheet">
-  <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
-  <link href="{% static 'css/linenum.css' %}" rel="stylesheet">
-  <!--[if lt IE 9]>
-    <script src="{% static 'js/html5shiv.js' %}"></script>
-    <script src="{% static 'js/respond.min.js' %}"></script>
-    <script src="{% static 'Scripts/linenum.js' %}"></script>
-  <![endif]-->
-
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+  <title>RISC-V(RV32I) UIT Edition</title>
+    <link href="{% static 'oxygen.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'Pack/backii.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'Pack1/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/bootstrap.min1.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/lightbox.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link id="css-preset" href="{% static 'css/presets/preset1.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+<!--    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />-->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet"/>
 
 <style>
+
      .my-custom-scrollbar {
 position: relative;
+width: 100%;
 height: 100%;
 overflow: auto;
 }
@@ -38,7 +38,7 @@ display: block;
 /* CSS for adding line numbers */
 #containernum
 {
-	width: 50px;
+	width: 20px;
 	float: left;
 	color: Gray;
 	font-family: Courier New;
@@ -66,14 +66,284 @@ display: block;
 	font-family: Courier New;
 	font-size: 16px;
 
+}
+.toast {
+    opacity: 1 !important;
+    width: 100%;
+}
+#toast-container > div {
+    width: 100%;
+    opacity:1;
+}
+
+
+.panel.with-nav-tabs .panel-heading{
+    padding: 5px 5px 0 5px;
+}
+.panel.with-nav-tabs .nav-tabs{
+	border-bottom: none;
+}
+.panel.with-nav-tabs .nav-justified{
+	margin-bottom: -1px;
+}
+/********************************************************************/
+/*** PANEL DEFAULT ***/
+.with-nav-tabs.panel-default .nav-tabs > li > a,
+.with-nav-tabs.panel-default .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > li > a:focus {
+    color: #777;
+}
+.with-nav-tabs.panel-default .nav-tabs > .open > a,
+.with-nav-tabs.panel-default .nav-tabs > .open > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > .open > a:focus,
+.with-nav-tabs.panel-default .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > li > a:focus {
+    color: #777;
+	background-color: #ddd;
+	border-color: transparent;
+}
+.with-nav-tabs.panel-default .nav-tabs > li.active > a,
+.with-nav-tabs.panel-default .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > li.active > a:focus {
+	color: #555;
+	background-color: #fff;
+	border-color: #ddd;
+	border-bottom-color: transparent;
+}
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu {
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a {
+    color: #777;
+}
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+    background-color: #ddd;
+}
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-color: #555;
+}
+/********************************************************************/
+/*** PANEL PRIMARY ***/
+.with-nav-tabs.panel-primary .nav-tabs > li > a,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
+    color: #fff;
+}
+.with-nav-tabs.panel-primary .nav-tabs > .open > a,
+.with-nav-tabs.panel-primary .nav-tabs > .open > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > .open > a:focus,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
+	color: #fff;
+	background-color: #3071a9;
+	border-color: transparent;
+}
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a,
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a:focus {
+	color: #428bca;
+	background-color: #fff;
+	border-color: #428bca;
+	border-bottom-color: transparent;
+}
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu {
+    background-color: #428bca;
+    border-color: #3071a9;
+}
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a {
+    color: #fff;
+}
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+    background-color: #3071a9;
+}
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+    background-color: #4a9fe9;
+}
+/********************************************************************/
+/*** PANEL SUCCESS ***/
+.with-nav-tabs.panel-success .nav-tabs > li > a,
+.with-nav-tabs.panel-success .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-success .nav-tabs > li > a:focus {
+	color: #3c763d;
+}
+.with-nav-tabs.panel-success .nav-tabs > .open > a,
+.with-nav-tabs.panel-success .nav-tabs > .open > a:hover,
+.with-nav-tabs.panel-success .nav-tabs > .open > a:focus,
+.with-nav-tabs.panel-success .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-success .nav-tabs > li > a:focus {
+	color: #3c763d;
+	background-color: #d6e9c6;
+	border-color: transparent;
+}
+.with-nav-tabs.panel-success .nav-tabs > li.active > a,
+.with-nav-tabs.panel-success .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-success .nav-tabs > li.active > a:focus {
+	color: #3c763d;
+	background-color: #fff;
+	border-color: #d6e9c6;
+	border-bottom-color: transparent;
+}
+.with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > li > a {
+    color: #3c763d;
+}
+.with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+    background-color: #d6e9c6;
+}
+.with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.with-nav-tabs.panel-success .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-color: #3c763d;
+}
+/********************************************************************/
+/*** PANEL INFO ***/
+.with-nav-tabs.panel-info .nav-tabs > li > a,
+.with-nav-tabs.panel-info .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-info .nav-tabs > li > a:focus {
+	color: #31708f;
+}
+.with-nav-tabs.panel-info .nav-tabs > .open > a,
+.with-nav-tabs.panel-info .nav-tabs > .open > a:hover,
+.with-nav-tabs.panel-info .nav-tabs > .open > a:focus,
+.with-nav-tabs.panel-info .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-info .nav-tabs > li > a:focus {
+	color: #31708f;
+	background-color: #bce8f1;
+	border-color: transparent;
+}
+.with-nav-tabs.panel-info .nav-tabs > li.active > a,
+.with-nav-tabs.panel-info .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-info .nav-tabs > li.active > a:focus {
+	color: #31708f;
+	background-color: #fff;
+	border-color: #bce8f1;
+	border-bottom-color: transparent;
+}
+.with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > li > a {
+    color: #31708f;
+}
+.with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+    background-color: #bce8f1;
+}
+.with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.with-nav-tabs.panel-info .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-color: #31708f;
+}
+/********************************************************************/
+/*** PANEL WARNING ***/
+.with-nav-tabs.panel-warning .nav-tabs > li > a,
+.with-nav-tabs.panel-warning .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-warning .nav-tabs > li > a:focus {
+	color: #8a6d3b;
+}
+.with-nav-tabs.panel-warning .nav-tabs > .open > a,
+.with-nav-tabs.panel-warning .nav-tabs > .open > a:hover,
+.with-nav-tabs.panel-warning .nav-tabs > .open > a:focus,
+.with-nav-tabs.panel-warning .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-warning .nav-tabs > li > a:focus {
+	color: #8a6d3b;
+	background-color: #faebcc;
+	border-color: transparent;
+}
+.with-nav-tabs.panel-warning .nav-tabs > li.active > a,
+.with-nav-tabs.panel-warning .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-warning .nav-tabs > li.active > a:focus {
+	color: #8a6d3b;
+	background-color: #fff;
+	border-color: #faebcc;
+	border-bottom-color: transparent;
+}
+.with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu {
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+.with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > li > a {
+    color: #8a6d3b;
+}
+.with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+    background-color: #faebcc;
+}
+.with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.with-nav-tabs.panel-warning .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-color: #8a6d3b;
+}
+/********************************************************************/
+/*** PANEL DANGER ***/
+.with-nav-tabs.panel-danger .nav-tabs > li > a,
+.with-nav-tabs.panel-danger .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-danger .nav-tabs > li > a:focus {
+	color: #a94442;
+}
+.with-nav-tabs.panel-danger .nav-tabs > .open > a,
+.with-nav-tabs.panel-danger .nav-tabs > .open > a:hover,
+.with-nav-tabs.panel-danger .nav-tabs > .open > a:focus,
+.with-nav-tabs.panel-danger .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-danger .nav-tabs > li > a:focus {
+	color: #a94442;
+	background-color: #ebccd1;
+	border-color: transparent;
+}
+.with-nav-tabs.panel-danger .nav-tabs > li.active > a,
+.with-nav-tabs.panel-danger .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-danger .nav-tabs > li.active > a:focus {
+	color: #a94442;
+	background-color: #fff;
+	border-color: #ebccd1;
+	border-bottom-color: transparent;
+}
+.with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu {
+    background-color: #f2dede; /* bg color */
+    border-color: #ebccd1; /* border color */
+}
+.with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > li > a {
+    color: #a94442; /* normal text color */
+}
+.with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+    background-color: #ebccd1; /* hover bg color */
+}
+.with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.with-nav-tabs.panel-danger .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+    color: #fff; /* active text color */
+    background-color: #a94442; /* active bg color */
+}
+
+.btn-groupc {
+            margin: 0 auto;
+            text-align: center;
+            width: inherit;
+            display: inline-block;
+            }
 </style>
 
 
 
 </head><!--/head-->
-
 <body>
-
 
 
   <!--.preloader-->
@@ -86,21 +356,22 @@ display: block;
         <div class="item active" style="background-image: url({% static 'images/p1.jpg' %})">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Welcome to <span>OXYGEN</span></h1>
-            <p class="animated fadeInRightBig">UIT-Edition RISC-V SIMULATOR</p>
+            <h1 class="animated fadeInLeftBig"><span>BURAQ-IMC</span></h1>
+            <p class="animated fadeInRightBig">UIT-Edition RISC-V(BURAQ-RV32IMC) SIMULATOR</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#read">Start now</a>
           </div>
         </div>
         <div class="item" style="background-image: url({% static 'images/p3.jpg' %})">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Say Hello to <span>Oxygen</span></h1>
-            <p class="animated fadeInRightBig">UIT-Edition RISC-V SIMULATOR</p>
+            <p class="animated fadeInRightBig">UIT-Edition RISC-V(BURAQ-RV32I) SIMULATOR</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#read">Start now</a>
           </div>
         </div>
         <div class="item" style="background-image: url({% static 'images/p2.jpg' %})">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">We are <span>MERL-UIT</span></h1>
-            <p class="animated fadeInRightBig">UIT-Edition RISC-V SIMULATOR</p>
+            <p class="animated fadeInRightBig">UIT-Edition RISC-V(BURAQ-RV32I) SIMULATOR</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#read">Start now</a>
           </div>
         </div>
@@ -112,7 +383,7 @@ display: block;
 
     </div><!--/#home-slider-->
     <div class="main-nav">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -125,124 +396,242 @@ display: block;
           </a>
         </div>
         <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-right">
             <li class="scroll active"><a href="#home">Home</a></li>
             <li class="scroll"><a href="#read">Editor</a></li>
             <li class="scroll"><a href="#simulator">Simulator</a></li>
             <li class="scroll"><a href="#about-us">About Us</a></li>
-            <li class="scroll"><a href="#team">Team</a></li>
-            <li class="scroll"><a href="#contact">Contact</a></li>
+            <li class="scroll"><a href="#contributors">Contributors</a></li>
           </ul>
         </div>
       </div>
     </div><!--/#main-nav-->
   </header><!--/#home-->
-  <section id="read">
-    <form id="form" action="#simulator">
-      <div class="container">
-        <div id="containernum">
-          <div id="divlines">
+  <div id="read" style="height: 80px"></div>
+  <section id="">
+      <div class="container-fluid">
+          <div class="row" style="margin-bottom:5px;">
+                <div class="btn-groupc" role="group">
+                    <nav>
+                      <div class="nav nav-tabs" id="myTab" role="tablist" style="background:#159AE7; color:#159AE7;">
+                        <button class="nav-item nav-link active" id="I-button" data-toggle="tab"  role="tab" aria-controls="ExI" aria-selected="true" style="font-weight: bold;">BURAQ-I</button>
+                        <button class="nav-item nav-link" id="M-button" data-toggle="tab"  role="tab" aria-controls="ExM" aria-selected="false" style="font-weight: bold;">BURAQ-IM</button>
+                        <button class="nav-item nav-link" id="C-button" data-toggle="tab" role="tab" aria-controls="ExC" aria-selected="false" style="font-weight: bold;">BURAQ-IMC</button>
+                      </div>
+                    </nav>
+                 </div>
           </div>
-        </div>
-        <textarea id="editline" name="editor" style="width:80%; height:600px;" rows="100" placeholder="Write Code...... ">{{ code }}</textarea><br>
-        <div id="containerbutton">
-        </div>
-        <button ID="Button5" type="submit" style=" border-radius:0; color:#ffffff;  margin:0;" class="btn btn-success" Font-Bold="True" Width="267px" Height="37px">Execute</button>
+          <form name="form1" id="form" method="post"> {% csrf_token %}
+            <div id="ExI">
+              <div class="row" style="margin-left:2px">
+                   <textarea id="editline" name="editor"  placeholder="Write Code...... ">{{ code }}</textarea><br>
+              </div>
+              <div class="row" style="margin-left: 2px">
+              <button type="button" ID="st" onclick="call();" style=" border-radius:0; color:#ffffff;  margin:0; font-weight: bold;" class="btn btn-primary" Font-Bold="True" Width="267px" Height="37px">Start Simulation</button>
+                </div>
+          </div>
+          </form>
+          <form name="form2" id="form_M" method="post"> {% csrf_token %}
+            <div id="ExM">
+              <div class="row" style="margin-left: 2px">
+                <textarea id="editline1" name="editor1" placeholder="Write Code...... ">{{ code1 }}</textarea><br>
+              </div>
+              <div class="row" style="margin-left: 2px">
+              <button type="button" ID="st1" onclick="call1();" style=" border-radius:0; color:#ffffff;  margin:0; font-weight: bold;" class="btn btn-primary" Font-Bold="True" Width="267px" Height="37px">Start Simulation</button>
+          </div>
+            </div>
+          </form>
+          <form name="form3" id="form_C" method="post">
+              {% csrf_token %}
+              <div id="ExC">
+                  <div class="row" style="margin-left:2px">
+                    <textarea id="editline2" name="editor2" placeholder="Write Code...... ">{{ code2 }}</textarea><br>
+                  </div>
+                  <div class="row" style="margin-left: 2px">
+                      <button type="button" ID="st3" onclick="call2();" style=" border-radius:0; color:#ffffff;  margin:0; font-weight: bold;" class="btn btn-primary" Font-Bold="True" Width="267px" Height="37px">Start Simulation</button>
+                  </div>
+              </div>
+          </form>
+
       </div>
-    </form>
   </section><!--/#read-->
   <section id="simulator">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-7">
-                  <div class="leftdiv"
-                  >
-               <div  class="row" style="margin-top:7px; ">
-                   <div style="width:100%; height:45px;" >
-                 <button ID="Button0" runat="server" style=" margin-left:20%; height:45px; align-items:center; " class="btn btn-primary" Font-Bold="True" >Start Simulation From Editor</button>
-                 <button ID="Button6" runat="server" Text="Cancel" style="margin-left:5%;border-radius:0;height:45px;" class="btn btn-primary" Font-Bold="True" >Cancel</button>
-                       </div>
-               </div>
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-9">
+                <div class="row" style="margin-top:10px;">
+                    <div class="btn-groupc" role="group">
+                        <form id="run-form" action="/execute/#simulator" method="post">
+                            {% csrf_token %}
+                        </form>
+                        <form id="step-form" action="/step/#simulator" method="get">
+                            {% csrf_token %}
+                        </form>
+                        <form id="prev-form" method="get">
+                            {% csrf_token %}
+                        </form>
+                        <form id="reset-form" action="/reset/#simulator" method="get">
+                            {% csrf_token %}
+                        </form>
 
+                        <button type="button" id="run"  onclick="index();" class="btn btn-success">Run</button>
+                        <button type="button" id="step" onclick="step();" class="btn btn-info">Step</button>
+                        <button type="button" id="prev" onclick="prev();" class="btn btn-info">Prev</button>
+                        <button type="button" id="reset" onclick="reset();" class="btn btn-primary" >Reset</button>
+                        <button type="button" id="dump" onclick="dump();" class="btn btn-primary" >Dump</button>
 
-               <div  class="row" style="margin-top:7px;">
-                   <div class="col-12">
+                        <script type="text/javascript">
+                                     function bbb(res){
+                                        var b = parseInt(res);
+                                        console.log(res);
+                                        var cells = document.getElementById("test").getElementsByTagName("tr");
+                                            for (var i = 0; i <= cells.length; i++) {
+                                                if (cells[i].rowIndex == res) {
+                                                    cells[i].style.backgroundColor = "#82E0AA";}
+                                                else{cells[i].style.backgroundColor = "#FFFFFF";}
+                                                }
+                                     }
+                                 </script>
+                        <script type="text/javascript">
+                             function a(res){
+                                 if (res == "off")
+                                 {
+                                    document.getElementById("step").disabled = true;
+                                    document.getElementById("run").disabled = true;
+                                    document.getElementById("prev").disabled = false;
+                                    document.getElementById("reset").disabled = false;
+                                    document.getElementById("dump").disabled = false;
+                                 }
+                               }
 
-                       <h1 class="text-primary">Risc-V Simulator </h1>
-                       <p class="text-success">It is an open-source hardware instruction set architecture (ISA) based on established reduced instruction set computer (RISC) principles. The project began in 2010 at the University of California, Berkeley, but many contributors are volunteers not affiliated with the university.</p>
-                       <p class="text-success">This Getting Started Guide will explain how to get started with developing for the free and open RISC-V ISA, both in simulation and on physical implementations.
+                               function b(){
+                                    document.getElementById("step").disabled = false;
+                                    document.getElementById("run").disabled = false;
+                                    document.getElementById("prev").disabled = false;
+                                    document.getElementById("reset").disabled = false;
+                                    document.getElementById("dump").disabled = false;
+                               }
 
-                           The Guide focuses on running standard operating systems - Zephyr and Linux - on popular RISC-V platforms with minimum effort.
+                               function c(){
+                                    document.getElementById("step").disabled = true;
+                                    document.getElementById("run").disabled = true;
+                                    document.getElementById("prev").disabled = false;
+                                    document.getElementById("reset").disabled = false;
+                                    document.getElementById("dump").disabled = false;
+                               }
 
-   It will be expanded with time to cover more platforms and scenarios.
-                       </p>
-                       </div>
-               </div>
-               <div  class="row" style="margin-top:7px;">
-                    <div class="col-12">
-                      <textarea id="TextArea1" name="fresult"  runat="server" style=" margin-top:4px; width:100%; height: 156px; " rows="6" placeholder="Output is Here">{{fresult}}{{error}}</textarea>
+                               function d(){
+                                    document.getElementById("step").disabled = false;
+                                    document.getElementById("run").disabled = false;
+                                    document.getElementById("prev").disabled = true;
+                                    document.getElementById("reset").disabled = true;
+                                    document.getElementById("dump").disabled = false;
+                               }
+                        </script>
+                        <script type="text/javascript">
+                            var res1 = "{{result}}";
+                                 if (res1 == "False")
+                                 {
+                                    document.getElementById("step").disabled = true;
+                                    document.getElementById("run").disabled = true;
+                                    document.getElementById("prev").disabled = true;
+                                    document.getElementById("reset").disabled = true;
+                                    document.getElementById("dump").disabled = true;
+                                 }
+                            function button_tap(res){
+                                 if (res == "True")
+                                 {
+                                    document.getElementById("step").disabled = false;
+                                    document.getElementById("run").disabled = false;
+                                    document.getElementById("prev").disabled = true;
+                                    document.getElementById("reset").disabled = true;
+                                    document.getElementById("dump").disabled = false;
+                                 }
+                             }
+                         </script>
                     </div>
+                </div>
+                <div class="row" style="margin-top:10px; margin-left:1px; margin-right:5px; height:600px;">
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                        <table id="y" class="table">
+                            <thead class="thead">
+                                <tr style="background:#e6f5fe">
+                                  <th style="text-align:center; font-size:17px;" scope="col">PC</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Basic Code</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Type</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Imm-1</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Funct-7</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Funct-6</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Funct-4</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">rs2</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">rs1</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Funct-3</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Funct-2</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">rd</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Imm-2</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Opcode</th>
+                                </tr>
+                              </thead>
+                            <tbody id="test" style="text-align:center; font-size:16px; font-family:Courier;">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" style="margin-top-10px; margin-left:1px; margin-right:5px;">
+                    <textarea id="TextArea1" name="fresult"  readonly="" style="font-size:20px; font-family:Courier New; font-weight: ; margin-top:4px; width:100%; height: 181px; " placeholder="Console Output"></textarea>
+                </div>
+            </div>
+            <div class="col-3" style="padding-left:1px; margin-top:7px;">
+                 <div class="row" style="margin-top:3px;">
+                    <div class="btn-groupc" role="group">
+                        <nav>
+                          <div class="nav nav-tabs" id="nav-tabs" role="tablist" style="background:#0099CC; color:#ffffff;">
+                            <button class="nav-item nav-link active" id="Button9" data-toggle="tab"  role="tab"  aria-selected="true" style="font-weight: bold; background:#159AE7;">REGISTERS</button>
+                            <button class="nav-item nav-link" id="Button7" data-toggle="tab"  role="tab"  aria-selected="false" style="font-weight: bold; background:#159AE7;">MEMORY</button>
+                          </div>
+                        </nav>
+                    </div>
+                </div>
+                 <div class="row" style="background-color:#ffffff; margin-top:6px; height:733px;">
 
-               </div>
-
-           </div>
-              </div>
-              <div class="col-sm-1">
-                  <div class="middiv"></div>
-              </div>
-              <div class="col-lg-4">
-                  <div class="rightdiv" >
-
-               <div class="row" style="margin-top:5px;">
-                 <div class="col-sm-2">
-
-                 </div>
-                   <div class="col-md-4">
-                     <div class="leftdiv">
-                       <button  ID="Button7" class="btn btn-primary" Font-Bold="True" OnClientClick="return false;">Memory</button>
-                     </div>
-                   </div>
-                   <div class="col-sm-1">
-
-                 </div>
-                   <!--<div class="col-sm-4">
-                     <div class="middiv">
-                       <button ID="Button8"  class="btn btn-primary" Font-Bold="True" OnClientClick="return false;" >Cache</button>
-                     </div>
-                   </div>--->
-
-                   <div class="col-md-4">
-                     <div class="rightdiv">
-                       <button ID="Button9"  class="btn btn-primary" Font-Bold="True" OnClientClick="return false;" >Register</button>
-                     </div>
-
-                   </div>
-
-               </div>
-
-               <div class="row" style="background-color:#ffffff; margin-top:5px; height:440px;">
-
-                   <div id="hd" style="width:100%; height:440px; background-color:#74B2F1;" >
+                   <div id="hd" style="width:100%; height:733px;" >
                      <!-- Memory Block -->
                      <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
-                      <table class="table table-bordered table-dark table-striped mb-0">
+                      <table id="z" class="table table-bordered table-dark table-striped mb-0">
 
                         <!--Actual Code With Loop-->
 
-                        <tr class="bg-success">
-                          <td>
-                            <h3 style="text-decoration-line: underline; text-align:center;">Memory Address</h3>
+                        <tr style="background:#e6f5fe;">
+                          <td rowspan="2">
+                            <h4 style="text-decoration-line: underline; text-align:center; font-weight: bold;">Memory Address</h4>
                           </td>
-                          <td>
-                            <h3 style="text-decoration-line: underline; text-align:center;">Memory Value</h3>
+                          <td colspan="4">
+                            <h4  style="text-decoration-line: underline; text-align:center; font-weight: bold;">Memory Value</h4>
                           </td>
                         </tr>
-                          {% for k,l in data1 %}
+                        <tr style="background:#e6f5fe; color:black; ">
+                          <th style="text-decoration-line: underline; text-align:center;">+0
+                          </th>
+                          <th style="text-decoration-line: underline; text-align:center;">+1
+                          </th>
+                          <th style="text-decoration-line: underline; text-align:center;">+2
+                          </th>
+                          <th style="text-decoration-line: underline; text-align:center;">+3
+                          </th>
+                        </tr>
+
+
+
+
+                          {% for k,l,m,n,o in data1 %}
 
                           <tr style="border-bottom:1px solid;">
-                            <td style="text-align:center; font-size:19px;">{{k}}</td>
-                            <td style="text-align:center;font-size:19px;">{{l}}</td>
+                            <td style="text-align:center; font-size:14px; width:35%;">{{k}}</td>
+                            <td style="text-align:center;font-size:14px;">{{l}}</td>
+                            <td style="text-align:center;font-size:14px;">{{m}}</td>
+                            <td style="text-align:center;font-size:14px;">{{n}}</td>
+                            <td style="text-align:center;font-size:14px;">{{o}}</td>
                           </tr>
 
                           {%endfor%}
@@ -252,124 +641,56 @@ display: block;
                     </div>
 
                    </div>
-                   <div id="hd1" style="width:100%; height:440px;  background-color:#CC89A3;" ></div>
-                   <div id="hd2" style="width:100%; height:440px; background-color: #DAF7A6;" >
-                       
-                    
-                    <!----
-                    Rough Task
-                    
-                  <textarea ID="TextBox2" runat="server" Height="437px" Width="896px" OnTextChanged="TextBox2_TextChanged"></textarea>
-                  -->
-
-                  <!--Static Rows And Column
-                   <tr>
-                          <td>Name</td>
-                          <td>Age</td>
-                        </tr>
-                    
-                        <tr>
-                          <td>A</td>
-                          <td>1</td>
-                        </tr>
-                    
-                        <tr>
-                          <td>B</td>
-                          <td>2</td>
-                        </tr>
-                    
-                        <tr>
-                          <td>C</td>
-                          <td>3</td>
-                        </tr>
-                    
-                        <tr>
-                          <td>D</td>
-                          <td>5</td>
-                        </tr>
-                        <tr>
-                          <td>D</td>
-                          <td>5</td>
-                        </tr>
-                        <tr>
-                          <td>D</td>
-                          <td>5</td>
-                        </tr>
-                        <tr>
-                          <td>D</td>
-                          <td>5</td>
-                        </tr>
-                        <tr>
-                          <td>D</td>
-                          <td>5</td>
-                        </tr>
-                        <tr>
-                          <td>D</td>
-                          <td>5</td>
-                        </tr>
-                        <tr>
-                          <td>D</td>
-                          <td>5</td>
-                        </tr>
-                        <tr>
-                          <td>D</td>
-                          <td>5</td>
-                        </tr>
-                        <tr>
-                          <td>D</td>
-                          <td>5</td>
-                        </tr>
-                        <tr>
-                          <td>D</td>
-                          <td>5</td>
-                        </tr>
-                        <tr>
-                          <td>D</td>
-                          <td>5</td>
-                        </tr>
-                    
-                  -->
+                   <div id="hd2" style="width:100%; height:733px; background-color: #74B2F1;" >
                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                    
-                      <table class="table table-bordered table-dark table-striped mb-0">
-                    
+
+                      <table id="x" class="table table-bordered table-dark table-striped mb-0">
+
                         <!--Actual Code With Loop-->
 
-                        <tr class="bg-success">
+                        <tr style="background:#e6f5fe;">
                           <td>
-                            <h3 style="text-decoration-line: underline; text-align:center;">Register Name</h3>
+                            <h3 style="text-decoration-line: underline; text-align:center; font-weight: bold;">Register Name</h3>
                           </td>
                           <td>
-                            <h3 style="text-decoration-line: underline; text-align:center;">Register Value</h3>
+                            <h3 style="text-decoration-line: underline; text-align:center; font-weight: bold;">Register Value</h3>
                           </td>
                         </tr>
                           {% for i,j in data %}
-                          
+
                           <tr style="border-bottom:1px solid;">
                             <td style="text-align:center; font-size:19px;">{{j}}</td>
                             <td style="text-align:center;font-size:19px;">{{i}}</td>
                           </tr>
-                          
+
                           {%endfor%}
 
                       </table>
-                    
+
                     </div>
 
-                   
-                  
-                  
                   </div>
 
-               </div>
-
-           </div>
-              </div>
-          </div>
-      </div>
-  </section><!--/#simulator-->
+                 </div>
+                 <div class="row" style="margin-top:3px;">
+                     <div class="col-2">
+                         <label>Display Settings</label>
+                     </div>
+                     <div class="col-1" style="margin-top:10px;margin-left:10px;">
+                         <select  id="no_sys" onchange="number_system();">
+                            <option value="dec">Decimal</option>
+                            <option value="hex">Hex</option>
+                            <option value="unsign">Unsigned</option>
+                            <option value="ascii">ASCII</option>
+                     </select>
+                     </div>
+                 </div>
+            </div>
+        </div>
+   </div>
+  </section>
   <section id="about-us" class="parallax" style="background-image: url({% static 'images/p2.jpg' %});">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6">
           <div class="about-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
@@ -401,7 +722,7 @@ The main Purpose of making this simulator is to get familiar with RISC-V ISA(Ins
               </div>
             </div>
             <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-              <p class="lead">Fun</p>
+              <p class="lead">RISC V Architecture Knowledge</p>
               <div class="progress">
                 <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="85">85%</div>
               </div>
@@ -412,114 +733,118 @@ The main Purpose of making this simulator is to get familiar with RISC-V ISA(Ins
     </div>
   </section><!--/#about-us-->
 
-  <section id="team">
-    <div class="container">
+  <section id="contributors">
+    <div class="container-fluid">
       <div class="row">
         <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
-          <h2>The Team</h2>
+          <h2>Contributors</h2>
         </div>
       </div>
       <div class="team-members">
         <div class="row">
-          <div class="col-sm-3">
+            <div class="col-1">
+          </div>
+            <div class="col-2">
             <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="300ms">
               <div class="member-image">
-                <!--<img class="img-responsive" src="{% static 'images/team/ali.jpg' %}" alt="">-->
+                <img class="img-responsive" src="{% static 'images/team/ali.jpg' %}" alt="" width="500" height="600">
               </div>
               <div class="member-info">
                 <h3>Ali Hassan Ahmed Khan</h3>
                 <h4>Developer</h4>
               </div>
               <div class="social-icons">
-                <!--<ul>
+                <ul>
                   <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                   <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                   <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
                   <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
                   <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
-                </ul>-->
+                </ul>
               </div>
             </div>
           </div>
-          <div class="col-sm-2">
+            <div class="col-2">
             <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
-              <!--<div class="member-image">
-                <img class="img-responsive" src="{% static 'images/team/tayyab.jpeg' %}" alt="">
-              </div>-->
+              <div class="member-image">
+                <img class="img-responsive" src="{% static 'images/team/tayyab.jpg' %}" alt="" width="500" height="600">
+              </div>
               <div class="member-info">
                 <h3>Syed Tayyab Farooq</h3>
                 <h4>Developer</h4>
               </div>
               <div class="social-icons">
-                <!--<ul>
+                <ul>
                   <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                   <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                   <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
                   <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
                   <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
-                </ul>-->
+                </ul>
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
+            <div class="col-2">
             <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
-              <!--<div class="member-image">
-                <img class="img-responsive" src="{% static 'images/team/minhaj.jpg' %}" alt="">
-              </div>-->
+              <div class="member-image">
+                <img class="img-responsive" src="{% static 'images/team/min.jpg' %}" alt="" width="500" height="600">
+              </div>
               <div class="member-info">
                 <h3>Minhaj Ahmed</h3>
                 <h4>Developer</h4>
               </div>
               <div class="social-icons">
-                <!--<ul>
+                <ul>
                   <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                   <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                   <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
                   <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
                   <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
-                </ul>-->
+                </ul>
               </div>
             </div>
           </div>
-          <div class="col-sm-2">
+            <div class="col-2">
             <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
-              <!--<div class="member-image">
-                <img class="img-responsive" src="{% static 'images/team/minhaj.jpg' %}" alt="">
-              </div>-->
+              <div class="member-image">
+                <img class="img-responsive" src="{% static 'images/team/fa.jpg' %}" alt="" width="500" height="600">
+              </div>
               <div class="member-info">
                 <h3>Engr. Farhan Ahmed Karim</h3>
-                <h4>FYP SUPERVISOR</h4>
+                <h4>Software Team Leader</h4>
               </div>
               <div class="social-icons">
-                <!--<ul>
+                <ul>
                   <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                   <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                   <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
                   <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
                   <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
-                </ul>-->
+                </ul>
               </div>
             </div>
           </div>
-          <div class="col-sm-2">
+            <div class="col-2">
             <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
-              <!--<div class="member-image">
-                <img class="img-responsive" src="{% static 'images/team/minhaj.jpg' %}" alt="">
-              </div>-->
+              <div class="member-image">
+                <img class="img-responsive" src="{% static 'images/team/aliahmed.jpg' %}" alt="" width="500" height="600">
+              </div>
               <div class="member-info">
                 <h3>Dr. Ali Ahmed</h3>
-                <h4>FYP CO-SUPERVISOR</h4>
+                <h4>Hardware Team Leader</h4>
               </div>
               <div class="social-icons">
-                <!--<ul>
+                <ul>
                   <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                   <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                   <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
                   <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
                   <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
-                </ul>-->
+                </ul>
               </div>
             </div>
+          </div>
+            <div class="col-1">
           </div>
         </div>
       </div>
@@ -595,7 +920,1273 @@ The main Purpose of making this simulator is to get familiar with RISC-V ISA(Ins
       </div>
     </div>
   </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function call(){
+            $.ajax({
+                type:'POST',
+                url: '{% url 'displayI' %}',
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}', editline: codeMirror.getValue()},
+                success: function(param123){
+                    console.log("Yahoo!");
+                    dict1 = JSON.parse(param123);
+                    document.getElementById("TextArea1").value = '';
+                    if("error" in dict1){
+                        toastr.options = {
+                              "closeButton": false,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-full-width",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "1000",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                            };
+                        toastr.error(dict1.error,'Error!');
+                    }else{
+                        let len = dict1.length;
+                        var addrow = '<tr>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '</tr>'
+                        var ta = document.getElementById("y");
+                        var tb = document.getElementById("test");
+                        var tablelen = tb.rows.length;
+                        for(var i = 0; i < tablelen; i++){
+                            jQuery("#y tbody tr").remove();
+                        }
+                        for(var i = 0; i < len; i++){
+                            jQuery("#y tbody").append(addrow);
+                        }
+                        window.location.href = '#simulator';
+                        let data = dict1.data;
+                        let l1 = dict1.list1;
+                        let l2 = dict1.list2;
+                        let l3 = dict1.list3;
+                        let l4 = dict1.list4;
+                        let pc = dict1.pc;
+                        let codes = dict1.codes;
+                        let ins_type = dict1.ins_type;
+                        let imm1 = dict1.imm1;
+                        let f7 = dict1.f7;
+                        let f6 = dict1.f6;
+                        let f4 = dict1.f4;
+                        let s2 = dict1.s2;
+                        let s1 = dict1.s1;
+                        let f3 = dict1.f3;
+                        let f2 = dict1.f2;
+                        let dest = dict1.dest;
+                        let imm2 = dict1.imm2;
+                        let opcode = dict1.opcode;
+                        let ctn = dict1.ctn;
+                        let res = dict1.result;
+                        var count = 0;
+                        var count1 = 0;
+                        var count2 = 0;
+                        console.log(data)
+                        table = document.getElementById("x");
+                        table1 = document.getElementById("z");
+                        table2 = document.getElementById("y");
+                        for(var i = 1; i<table.rows.length; i++){
+                            for(var j = 1; j<table.rows[i].cells.length; j++){
+                                table.rows[i].cells[j].innerHTML = data[count];
+                                count++;
+                            }
+                        }
+                        for(var k = 2; k<table1.rows.length; k++){
+                            for(var l = 1; l<table1.rows[k].cells.length; l++){
+                                if(l == 1)
+                                    table1.rows[k].cells[l].innerHTML = l1[count1];
+                                if(l == 2)
+                                    table1.rows[k].cells[l].innerHTML = l2[count1];
+                                if(l == 3)
+                                    table1.rows[k].cells[l].innerHTML = l3[count1];
+                                if(l == 4)
+                                    table1.rows[k].cells[l].innerHTML = l4[count1];
+                            }
+                            count1 = count1 + 1;
+                        }
 
+                        for(var i = 1; i<table2.rows.length; i++){
+                            for(var j = 0; j<table2.rows[i].cells.length; j++){
+                                if(j == 0)
+                                    table2.rows[i].cells[j].innerHTML = pc[count2];
+                                if(j == 1)
+                                    table2.rows[i].cells[j].innerHTML = codes[count2];
+                                if(j == 2)
+                                    table2.rows[i].cells[j].innerHTML = ins_type[count2];
+                                if(j == 3)
+                                    table2.rows[i].cells[j].innerHTML = imm1[count2];
+                                if(j == 4)
+                                    table2.rows[i].cells[j].innerHTML = f7[count2];
+                                if(j == 5)
+                                    table2.rows[i].cells[j].innerHTML = f6[count2];
+                                if(j == 6)
+                                    table2.rows[i].cells[j].innerHTML = f4[count2];
+                                if(j == 7)
+                                    table2.rows[i].cells[j].innerHTML = s2[count2];
+                                if(j == 8)
+                                    table2.rows[i].cells[j].innerHTML = s1[count2];
+                                if(j == 9)
+                                    table2.rows[i].cells[j].innerHTML = f3[count2];
+                                if(j == 10)
+                                    table2.rows[i].cells[j].innerHTML = f2[count2];
+                                if(j == 11)
+                                    table2.rows[i].cells[j].innerHTML = dest[count2];
+                                if(j == 12)
+                                    table2.rows[i].cells[j].innerHTML = imm2[count2];
+                                if(j == 13)
+                                    table2.rows[i].cells[j].innerHTML = opcode[count2];
+
+                            }
+                            count2 = count2 + 1;
+                        }
+                        button_tap(res);
+                        if(s1_hex == "True"){
+                        s2_ascii = "False";
+                        s3_unsign = "False";
+                        s4_dec = "False";
+                        hex();
+                        }
+                        else if(s2_ascii == "True"){
+                            s2_hex = "False";
+                            s3_unsign = "False";
+                            s4_dec = "False";
+                            ascii();
+                        }
+                        else if(s3_unsign == "True"){
+                            s2_ascii = "False";
+                            s3_hex = "False";
+                            s4_dec = "False";
+                            unsign();
+                        }
+                        else if(s4_dec == "True"){
+                            s2_ascii = "False";
+                            s3_unsign = "False";
+                            s4_hex = "False";
+                            dec();
+                        }
+                        bbb(ctn);
+
+                    }
+
+                },
+                error: function(){
+                    toastr.options = {
+                              "closeButton": false,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-full-width",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "1000",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                        };
+                    toastr.warning('Something is wrong','Warning!');
+                }
+            });
+        }
+    </script>
+    <script>
+        function call1(){
+            $.ajax({
+                type:'POST',
+                url: '{% url 'Mdisplay' %}',
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}', editline1: codeMirror1.getValue()},
+                success: function(param123){
+                    console.log("Yahoo!");
+                    dict1 = JSON.parse(param123);
+                    document.getElementById("TextArea1").value = '';
+                    if("error" in dict1){
+                        let Error = dict1.Error;
+                        toastr.options = {
+                              "closeButton": false,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-full-width",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "1000",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                            };
+                        if(Error != ""){toastr.error(Error,'Error!');}
+                        else{toastr.error(dict1.error,'Error!');}
+                    }else{
+                        let len = dict1.length;
+                        var addrow = '<tr>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '</tr>'
+                        var ta = document.getElementById("y");
+                        var tb = document.getElementById("test");
+                        var tablelen = tb.rows.length;
+                        for(var i = 0; i < tablelen; i++){
+                            jQuery("#y tbody tr").remove();
+                        }
+                        for(var i = 0; i < len; i++){
+                            jQuery("#y tbody").append(addrow);
+                        }
+                        window.location.href = '#simulator';
+                        let data = dict1.data;
+                        let l1 = dict1.list1;
+                        let l2 = dict1.list2;
+                        let l3 = dict1.list3;
+                        let l4 = dict1.list4;
+                        let pc = dict1.pc;
+                        let codes = dict1.codes;
+                        let ins_type = dict1.ins_type;
+                        let imm1 = dict1.imm1;
+                        let f7 = dict1.f7;
+                        let f6 = dict1.f6;
+                        let f4 = dict1.f4;
+                        let s2 = dict1.s2;
+                        let s1 = dict1.s1;
+                        let f3 = dict1.f3;
+                        let f2 = dict1.f2;
+                        let dest = dict1.dest;
+                        let imm2 = dict1.imm2;
+                        let opcode = dict1.opcode;
+                        let ctn = dict1.ctn;
+                        let res = dict1.result;
+                        var count = 0;
+                        var count1 = 0;
+                        var count2 = 0;
+                        console.log(data)
+                        table = document.getElementById("x");
+                        table1 = document.getElementById("z");
+                        table2 = document.getElementById("y");
+                        for(var i = 1; i<table.rows.length; i++){
+                            for(var j = 1; j<table.rows[i].cells.length; j++){
+                                table.rows[i].cells[j].innerHTML = data[count];
+                                count++;
+                            }
+                        }
+                        for(var k = 2; k<table1.rows.length; k++){
+                            for(var l = 1; l<table1.rows[k].cells.length; l++){
+                                if(l == 1)
+                                    table1.rows[k].cells[l].innerHTML = l1[count1];
+                                if(l == 2)
+                                    table1.rows[k].cells[l].innerHTML = l2[count1];
+                                if(l == 3)
+                                    table1.rows[k].cells[l].innerHTML = l3[count1];
+                                if(l == 4)
+                                    table1.rows[k].cells[l].innerHTML = l4[count1];
+                            }
+                            count1 = count1 + 1;
+                        }
+
+                        for(var i = 1; i<table2.rows.length; i++){
+                            for(var j = 0; j<table2.rows[i].cells.length; j++){
+                                if(j == 0)
+                                    table2.rows[i].cells[j].innerHTML = pc[count2];
+                                if(j == 1)
+                                    table2.rows[i].cells[j].innerHTML = codes[count2];
+                                if(j == 2)
+                                    table2.rows[i].cells[j].innerHTML = ins_type[count2];
+                                if(j == 3)
+                                    table2.rows[i].cells[j].innerHTML = imm1[count2];
+                                if(j == 4)
+                                    table2.rows[i].cells[j].innerHTML = f7[count2];
+                                if(j == 5)
+                                    table2.rows[i].cells[j].innerHTML = f6[count2];
+                                if(j == 6)
+                                    table2.rows[i].cells[j].innerHTML = f4[count2];
+                                if(j == 7)
+                                    table2.rows[i].cells[j].innerHTML = s2[count2];
+                                if(j == 8)
+                                    table2.rows[i].cells[j].innerHTML = s1[count2];
+                                if(j == 9)
+                                    table2.rows[i].cells[j].innerHTML = f3[count2];
+                                if(j == 10)
+                                    table2.rows[i].cells[j].innerHTML = f2[count2];
+                                if(j == 11)
+                                    table2.rows[i].cells[j].innerHTML = dest[count2];
+                                if(j == 12)
+                                    table2.rows[i].cells[j].innerHTML = imm2[count2];
+                                if(j == 13)
+                                    table2.rows[i].cells[j].innerHTML = opcode[count2];
+                            }
+                            count2 = count2 + 1;
+                        }
+                        button_tap(res);
+                        if(s1_hex == "True"){
+                        s2_ascii = "False";
+                        s3_unsign = "False";
+                        s4_dec = "False";
+                        hex();
+                        }
+                        else if(s2_ascii == "True"){
+                            s2_hex = "False";
+                            s3_unsign = "False";
+                            s4_dec = "False";
+                            ascii();
+                        }
+                        else if(s3_unsign == "True"){
+                            s2_ascii = "False";
+                            s3_hex = "False";
+                            s4_dec = "False";
+                            unsign();
+                        }
+                        else if(s4_dec == "True"){
+                            s2_ascii = "False";
+                            s3_unsign = "False";
+                            s4_hex = "False";
+                            dec();
+                        }
+                        bbb(ctn);
+
+                    }
+
+                },
+                error: function(){
+                    toastr.options = {
+                              "closeButton": false,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-full-width",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "1000",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                        };
+                    toastr.warning('Something is wrong','Warning!');
+                }
+            });
+        }
+    </script>
+    <script>
+        function call2(){
+            $.ajax({
+                type:'POST',
+                url: '{% url 'IMCdisplay' %}',
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}', editline2: codeMirror2.getValue()},
+                success: function(param123){
+                    console.log("Yahoo!");
+                    dict1 = JSON.parse(param123);
+                    document.getElementById("TextArea1").value = '';
+                    if("error" in dict1){
+                        let Error = dict1.Error;
+                        toastr.options = {
+                              "closeButton": false,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-full-width",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "1000",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                            };
+                        if(Error != ""){toastr.error(Error,'Error!');}
+                        else{toastr.error(dict1.error,'Error!');}
+                    }else{
+                        let len = dict1.length;
+                        var addrow = '<tr>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '<td></td>'
+                        addrow += '</tr>'
+                        var ta = document.getElementById("y");
+                        var tb = document.getElementById("test");
+                        var tablelen = tb.rows.length;
+                        for(var i = 0; i < tablelen; i++){
+                            jQuery("#y tbody tr").remove();
+                        }
+                        for(var i = 0; i < len; i++){
+                            jQuery("#y tbody").append(addrow);
+                        }
+                        window.location.href = '#simulator';
+                        let data = dict1.data;
+                        let l1 = dict1.list1;
+                        let l2 = dict1.list2;
+                        let l3 = dict1.list3;
+                        let l4 = dict1.list4;
+                        let pc = dict1.pc;
+                        let codes = dict1.codes;
+                        let ins_type = dict1.ins_type;
+                        let imm1 = dict1.imm1;
+                        let f7 = dict1.f7;
+                        let f6 = dict1.f6;
+                        let f4 = dict1.f4;
+                        let s2 = dict1.s2;
+                        let s1 = dict1.s1;
+                        let f3 = dict1.f3;
+                        let f2 = dict1.f2;
+                        let dest = dict1.dest;
+                        let imm2 = dict1.imm2;
+                        let opcode = dict1.opcode;
+                        let ctn = dict1.ctn;
+                        let res = dict1.result;
+                        var count = 0;
+                        var count1 = 0;
+                        var count2 = 0;
+                        console.log(data)
+                        table = document.getElementById("x");
+                        table1 = document.getElementById("z");
+                        table2 = document.getElementById("y");
+                        for(var i = 1; i<table.rows.length; i++){
+                            for(var j = 1; j<table.rows[i].cells.length; j++){
+                                table.rows[i].cells[j].innerHTML = data[count];
+                                count++;
+                            }
+                        }
+                        for(var k = 2; k<table1.rows.length; k++){
+                            for(var l = 1; l<table1.rows[k].cells.length; l++){
+                                if(l == 1)
+                                    table1.rows[k].cells[l].innerHTML = l1[count1];
+                                if(l == 2)
+                                    table1.rows[k].cells[l].innerHTML = l2[count1];
+                                if(l == 3)
+                                    table1.rows[k].cells[l].innerHTML = l3[count1];
+                                if(l == 4)
+                                    table1.rows[k].cells[l].innerHTML = l4[count1];
+                            }
+                            count1 = count1 + 1;
+                        }
+
+                        for(var i = 1; i<table2.rows.length; i++){
+                            for(var j = 0; j<table2.rows[i].cells.length; j++){
+                                if(j == 0)
+                                    table2.rows[i].cells[j].innerHTML = pc[count2];
+                                if(j == 1)
+                                    table2.rows[i].cells[j].innerHTML = codes[count2];
+                                if(j == 2)
+                                    table2.rows[i].cells[j].innerHTML = ins_type[count2];
+                                if(j == 3)
+                                    table2.rows[i].cells[j].innerHTML = imm1[count2];
+                                if(j == 4)
+                                    table2.rows[i].cells[j].innerHTML = f7[count2];
+                                if(j == 5)
+                                    table2.rows[i].cells[j].innerHTML = f6[count2];
+                                if(j == 6)
+                                    table2.rows[i].cells[j].innerHTML = f4[count2];
+                                if(j == 7)
+                                    table2.rows[i].cells[j].innerHTML = s2[count2];
+                                if(j == 8)
+                                    table2.rows[i].cells[j].innerHTML = s1[count2];
+                                if(j == 9)
+                                    table2.rows[i].cells[j].innerHTML = f3[count2];
+                                if(j == 10)
+                                    table2.rows[i].cells[j].innerHTML = f2[count2];
+                                if(j == 11)
+                                    table2.rows[i].cells[j].innerHTML = dest[count2];
+                                if(j == 12)
+                                    table2.rows[i].cells[j].innerHTML = imm2[count2];
+                                if(j == 13)
+                                    table2.rows[i].cells[j].innerHTML = opcode[count2];
+
+                            }
+                            count2 = count2 + 1;
+                        }
+                        button_tap(res);
+                        if(s1_hex == "True"){
+                        s2_ascii = "False";
+                        s3_unsign = "False";
+                        s4_dec = "False";
+                        hex();
+                        }
+                        else if(s2_ascii == "True"){
+                            s2_hex = "False";
+                            s3_unsign = "False";
+                            s4_dec = "False";
+                            ascii();
+                        }
+                        else if(s3_unsign == "True"){
+                            s2_ascii = "False";
+                            s3_hex = "False";
+                            s4_dec = "False";
+                            unsign();
+                        }
+                        else if(s4_dec == "True"){
+                            s2_ascii = "False";
+                            s3_unsign = "False";
+                            s4_hex = "False";
+                            dec();
+                        }
+                        bbb(ctn);
+
+                    }
+
+                },
+                error: function(){
+                    toastr.options = {
+                              "closeButton": false,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-full-width",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "1000",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                        };
+                    toastr.warning('Something is wrong','Warning!');
+                }
+            });
+        }
+    </script>
+    <script>
+        function index(){
+            $.ajax({
+                type:'POST',
+                url: '{% url 'index' %}',
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(param123){
+                    console.log("Yahoo!");
+                    dict1 = JSON.parse(param123);
+                    if("error" in dict1){
+                        let Error = dict1.Error;
+                        toastr.options = {
+                          "closeButton": false,
+                          "debug": false,
+                          "newestOnTop": false,
+                          "progressBar": false,
+                          "positionClass": "toast-bottom-right",
+                          "preventDuplicates": false,
+                          "onclick": null,
+                          "showDuration": "300",
+                          "hideDuration": "1000",
+                          "timeOut": "5000",
+                          "extendedTimeOut": "1000",
+                          "showEasing": "swing",
+                          "hideEasing": "linear",
+                          "showMethod": "fadeIn",
+                          "hideMethod": "fadeOut"
+                        };
+                        toastr.error(Error,'Error!');
+                    }else{
+                    let data = dict1.data;
+                    let l1 = dict1.list1;
+                    let l2 = dict1.list2;
+                    let l3 = dict1.list3;
+                    let l4 = dict1.list4;
+                    let ctn = dict1.ctn;
+                    let res = dict1.result;
+                    let success = dict1.success;
+                    let atlast = dict1.atlast;
+                    var count = 0;
+                    var count1 = 0;
+                    console.log(data)
+                    table = document.getElementById("x");
+                    table1 = document.getElementById("z");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data[count];
+                            count++;
+                        }
+                    }
+                    for(var k = 2; k<table1.rows.length; k++){
+                        for(var l = 1; l<table1.rows[k].cells.length; l++){
+                            if(l == 1)
+                                table1.rows[k].cells[l].innerHTML = l1[count1];
+                            if(l == 2)
+                                table1.rows[k].cells[l].innerHTML = l2[count1];
+                            if(l == 3)
+                                table1.rows[k].cells[l].innerHTML = l3[count1];
+                            if(l == 4)
+                                table1.rows[k].cells[l].innerHTML = l4[count1];
+                        }
+                        count1 = count1 + 1;
+                    }
+                    a(res);
+                    if(success == "True"){
+                        toastr.options = {
+                          "closeButton": false,
+                          "debug": false,
+                          "newestOnTop": false,
+                          "progressBar": false,
+                          "positionClass": "toast-bottom-right",
+                          "preventDuplicates": false,
+                          "onclick": null,
+                          "showDuration": "1000",
+                          "hideDuration": "1000",
+                          "timeOut": "5000",
+                          "extendedTimeOut": "1000",
+                          "showEasing": "swing",
+                          "hideEasing": "linear",
+                          "showMethod": "fadeIn",
+                          "hideMethod": "fadeOut"
+                        };
+                        toastr.success(atlast,'Success!');
+                    }
+                    if(s1_hex == "True"){
+                        s2_ascii = "False";
+                        s3_unsign = "False";
+                        s4_dec = "False";
+                        hex();
+                    }
+                    else if(s2_ascii == "True"){
+                        s2_hex = "False";
+                        s3_unsign = "False";
+                        s4_dec = "False";
+                        ascii();
+                    }
+                    else if(s3_unsign == "True"){
+                        s2_ascii = "False";
+                        s3_hex = "False";
+                        s4_dec = "False";
+                        unsign();
+                    }
+                    else if(s4_dec == "True"){
+                        s2_ascii = "False";
+                        s3_unsign = "False";
+                        s4_hex = "False";
+                        dec();
+                    }
+                    bbb(ctn);}
+                },
+                error: function(){
+                    toastr.options = {
+                              "closeButton": false,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-full-width",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "1000",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                        };
+                    toastr.error('Error is occurred','Error!');
+                }
+            });
+        }
+    </script>
+    <script>
+        function step(){
+            $.ajax({
+                type:'POST',
+                url: '{% url 'step' %}',
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(param123){
+                    console.log("Yahoo!");
+                    dict1 = JSON.parse(param123);
+                    if("error" in dict1){
+                        let Error = dict1.Error;
+                        toastr.options = {
+                          "closeButton": false,
+                          "debug": false,
+                          "newestOnTop": false,
+                          "progressBar": false,
+                          "positionClass": "toast-bottom-right",
+                          "preventDuplicates": false,
+                          "onclick": null,
+                          "showDuration": "300",
+                          "hideDuration": "1000",
+                          "timeOut": "5000",
+                          "extendedTimeOut": "1000",
+                          "showEasing": "swing",
+                          "hideEasing": "linear",
+                          "showMethod": "fadeIn",
+                          "hideMethod": "fadeOut"
+                        };
+                        toastr.error(Error,'Error!');
+                    }else{
+                    let data = dict1.data;
+                    let l1 = dict1.list1;
+                    let l2 = dict1.list2;
+                    let l3 = dict1.list3;
+                    let l4 = dict1.list4;
+                    let ctn = dict1.ctn;
+                    let res = dict1.result;
+                    let success = dict1.success;
+                    let atlast = dict1.atlast;
+                    var count = 0;
+                    var count1 = 0;
+                    console.log(data)
+                    table = document.getElementById("x");
+                    table1 = document.getElementById("z");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data[count];
+                            count++;
+                        }
+                    }
+                    for(var k = 2; k<table1.rows.length; k++){
+                        for(var l = 1; l<table1.rows[k].cells.length; l++){
+                            if(l == 1)
+                                table1.rows[k].cells[l].innerHTML = l1[count1];
+                            if(l == 2)
+                                table1.rows[k].cells[l].innerHTML = l2[count1];
+                            if(l == 3)
+                                table1.rows[k].cells[l].innerHTML = l3[count1];
+                            if(l == 4)
+                                table1.rows[k].cells[l].innerHTML = l4[count1];
+                        }
+                        count1 = count1 + 1;
+                    }
+                    if(res == "off")
+                        {console.log("This is c");c();}
+                    else if(ctn > 0)
+                        {console.log("This is b");b();}
+                    if(success == "True"){
+                        toastr.options = {
+                          "closeButton": false,
+                          "debug": false,
+                          "newestOnTop": false,
+                          "progressBar": false,
+                          "positionClass": "toast-bottom-right",
+                          "preventDuplicates": false,
+                          "onclick": null,
+                          "showDuration": "300",
+                          "hideDuration": "1000",
+                          "timeOut": "5000",
+                          "extendedTimeOut": "1000",
+                          "showEasing": "swing",
+                          "hideEasing": "linear",
+                          "showMethod": "fadeIn",
+                          "hideMethod": "fadeOut"
+                        };
+                        toastr.success(atlast,'Success!');
+                    }
+                    if(s1_hex == "True"){
+                        s2_ascii = "False";
+                        s3_unsign = "False";
+                        s4_dec = "False";
+                        hex();
+                    }
+                    else if(s2_ascii == "True"){
+                        s2_hex = "False";
+                        s3_unsign = "False";
+                        s4_dec = "False";
+                        ascii();
+                    }
+                    else if(s3_unsign == "True"){
+                        s2_ascii = "False";
+                        s3_hex = "False";
+                        s4_dec = "False";
+                        unsign();
+                    }
+                    else if(s4_dec == "True"){
+                        s2_ascii = "False";
+                        s3_unsign = "False";
+                        s4_hex = "False";
+                        dec();
+                    }
+                    bbb(ctn);}
+                },
+                error: function(){
+                    toastr.options = {
+                              "closeButton": false,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-full-width",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "1000",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                        };
+                    toastr.error('Error is occurred','Error!');
+                }
+            });
+        }
+    </script>
+    <script>
+        function prev(){
+            $.ajax({
+                type:'POST',
+                url: '{% url 'prev' %}',
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(prev_dict){
+                    console.log("Yahoo!");
+                    dict1 = JSON.parse(prev_dict);
+                    let data = dict1.data;
+                    let l1 = dict1.list1;
+                    let l2 = dict1.list2;
+                    let l3 = dict1.list3;
+                    let l4 = dict1.list4;
+                    let ctn = dict1.ctn;
+                    let res = dict1.result;
+                    let success = dict1.success;
+                    let atlast = dict1.atlast;
+                    var count = 0;
+                    var count1 = 0;
+                    console.log(data)
+                    table = document.getElementById("x");
+                    table1 = document.getElementById("z");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data[count];
+                            count++;
+                        }
+                    }
+                    for(var k = 2; k<table1.rows.length; k++){
+                        for(var l = 1; l<table1.rows[k].cells.length; l++){
+                            if(l == 1)
+                                table1.rows[k].cells[l].innerHTML = l1[count1];
+                            if(l == 2)
+                                table1.rows[k].cells[l].innerHTML = l2[count1];
+                            if(l == 3)
+                                table1.rows[k].cells[l].innerHTML = l3[count1];
+                            if(l == 4)
+                                table1.rows[k].cells[l].innerHTML = l4[count1];
+                        }
+                        count1 = count1 + 1;
+                    }
+                    if(ctn-1 == 0)
+                        d();
+                    else
+                        b();
+                    //a(res);
+                    if(s1_hex == "True"){
+                        s2_ascii = "False";
+                        s3_unsign = "False";
+                        s4_dec = "False";
+                        hex();
+                    }
+                    else if(s2_ascii == "True"){
+                        s2_hex = "False";
+                        s3_unsign = "False";
+                        s4_dec = "False";
+                        ascii();
+                    }
+                    else if(s3_unsign == "True"){
+                        s2_ascii = "False";
+                        s3_hex = "False";
+                        s4_dec = "False";
+                        unsign();
+                    }
+                    else if(s4_dec == "True"){
+                        s2_ascii = "False";
+                        s3_unsign = "False";
+                        s4_hex = "False";
+                        dec();
+                    }
+                    bbb(ctn);
+                },
+                error: function(){
+                    toastr.options = {
+                              "closeButton": false,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-full-width",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "1000",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                        };
+                    toastr.error('Error is occurred','Error!');
+                }
+            });
+        }
+    </script>
+    <script>
+        function dump(){
+            $.ajax({
+                type:'POST',
+                url: '{% url 'dump' %}',
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(prev_dict){
+                    console.log("Yahoo!");
+                    dict1 = JSON.parse(prev_dict);
+                    let ins_hex = dict1.ins_hex
+                    document.getElementById("TextArea1").value = '';
+                    for(var i = 0; i < ins_hex.length; i++){
+                        document.getElementById("TextArea1").value += ins_hex[i] + '\n';
+                    }
+                },
+                error: function(){
+                    toastr.options = {
+                              "closeButton": false,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-full-width",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "1000",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                        };
+                    toastr.error('Error is occurred','Error!');
+                }
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        var s1_hex = "False";
+        var s2_ascii = "False";
+        var s3_unsign = "False";
+        var s4_dec = "False";
+        function number_system() {
+            var x = document.getElementById("no_sys").value;
+            if(x == "hex"){
+                s1_hex = "True";
+                s2_ascii = "False";
+                s3_unsign = "False";
+                s4_dec = "False";
+                hex();
+            }
+            else if(x == "ascii"){
+                s1_hex = "False";
+                s2_ascii = "True";
+                s3_unsign = "False";
+                s4_dec = "False";
+                ascii();
+            }
+            else if(x == "unsign"){
+                s1_hex = "False";
+                s2_ascii = "False";
+                s3_unsign = "True";
+                s4_dec = "False";
+                unsign();
+            }
+            else{
+                s1_hex = "False";
+                s2_ascii = "False";
+                s3_unsign = "False";
+                s4_dec = "True";
+                dec();
+            }
+        }
+    </script>
+
+    <script>
+        function hex(){
+            $.ajax({
+                type:'POST',
+                url: "{% url 'hex' %}",
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(hex_dict){
+                    hex_dict = JSON.parse(hex_dict);
+                    let data1 = hex_dict.val1
+                    let list1 = hex_dict.list1
+                    let list2 = hex_dict.list2
+                    let list3 = hex_dict.list3
+                    let list4 = hex_dict.list4
+                    var count = 0;
+                    console.log(data1)
+                    table = document.getElementById("x");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data1[count];
+                            count++;
+                        }
+                    }
+                    var count1 = 0;
+                    table1 = document.getElementById("z");
+                    for(var k = 2; k<table1.rows.length; k++){
+                        for(var l = 1; l<table1.rows[k].cells.length; l++){
+                            if(l == 1)
+                                table1.rows[k].cells[l].innerHTML = list1[count1];
+                            if(l == 2)
+                                table1.rows[k].cells[l].innerHTML = list2[count1];
+                            if(l == 3)
+                                table1.rows[k].cells[l].innerHTML = list3[count1];
+                            if(l == 4)
+                                table1.rows[k].cells[l].innerHTML = list4[count1];
+                        }
+                        count1 = count1 + 1;
+                    }
+                },
+                error: function(){
+                    alert("sorry");
+                }
+            });
+        }
+    </script>
+    <script>
+        function dec(){
+            $.ajax({
+                type:'POST',
+                url: "{% url 'dec' %}",
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(dec_dict){
+                    dec_dict = JSON.parse(dec_dict);
+                    let data2 = dec_dict.val
+                    let list1 = dec_dict.list1
+                    let list2 = dec_dict.list2
+                    let list3 = dec_dict.list3
+                    let list4 = dec_dict.list4
+                    var count = 0;
+                    console.log(data2)
+                    table = document.getElementById("x");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data2[count];
+                            count++;
+                        }
+                    }
+                    var count1 = 0;
+                    table1 = document.getElementById("z");
+                    for(var k = 2; k<table1.rows.length; k++){
+                        for(var l = 1; l<table1.rows[k].cells.length; l++){
+                            if(l == 1)
+                                table1.rows[k].cells[l].innerHTML = list1[count1];
+                            if(l == 2)
+                                table1.rows[k].cells[l].innerHTML = list2[count1];
+                            if(l == 3)
+                                table1.rows[k].cells[l].innerHTML = list3[count1];
+                            if(l == 4)
+                                table1.rows[k].cells[l].innerHTML = list4[count1];
+                        }
+                        count1 = count1 + 1;
+                    }
+                },
+                error: function(){
+                    alert("sorry");
+                }
+            });
+        }
+    </script>
+    <script>
+        function ascii(){
+            $.ajax({
+                type:'POST',
+                url: "{% url 'ascii' %}",
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(ascii_dict){
+                    ascii_dict = JSON.parse(ascii_dict);
+                    let data3 = ascii_dict.val2
+                    let list1 = ascii_dict.list1
+                    let list2 = ascii_dict.list2
+                    let list3 = ascii_dict.list3
+                    let list4 = ascii_dict.list4
+                    var count = 0;
+                    console.log(data3)
+                    table = document.getElementById("x");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data3[count];
+                            count++;
+                        }
+                    }
+                    var count1 = 0;
+                    table1 = document.getElementById("z");
+                    for(var k = 2; k<table1.rows.length; k++){
+                        for(var l = 1; l<table1.rows[k].cells.length; l++){
+                            if(l == 1)
+                                table1.rows[k].cells[l].innerHTML = list1[count1];
+                            if(l == 2)
+                                table1.rows[k].cells[l].innerHTML = list2[count1];
+                            if(l == 3)
+                                table1.rows[k].cells[l].innerHTML = list3[count1];
+                            if(l == 4)
+                                table1.rows[k].cells[l].innerHTML = list4[count1];
+                        }
+                        count1 = count1 + 1;
+                    }
+                },
+                error: function(){
+                    alert("sorry");
+                }
+            });
+        }
+    </script>
+    <script>
+        function unsign(){
+            $.ajax({
+                type:'POST',
+                url: "{% url 'unsign' %}",
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(un_dict){
+                    un_dict = JSON.parse(un_dict);
+                    let data4 = un_dict.val3
+                    let list1 = un_dict.list1
+                    let list2 = un_dict.list2
+                    let list3 = un_dict.list3
+                    let list4 = un_dict.list4
+                    var count = 0;
+                    console.log(data4)
+                    table = document.getElementById("x");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data4[count];
+                            count++;
+                        }
+                    }
+                    var count1 = 0;
+                    table1 = document.getElementById("z");
+                    for(var k = 2; k<table1.rows.length; k++){
+                        for(var l = 1; l<table1.rows[k].cells.length; l++){
+                            if(l == 1)
+                                table1.rows[k].cells[l].innerHTML = list1[count1];
+                            if(l == 2)
+                                table1.rows[k].cells[l].innerHTML = list2[count1];
+                            if(l == 3)
+                                table1.rows[k].cells[l].innerHTML = list3[count1];
+                            if(l == 4)
+                                table1.rows[k].cells[l].innerHTML = list4[count1];
+                        }
+                        count1 = count1 + 1;
+                    }
+                },
+                error: function(){
+                    alert("sorry");
+                }
+            });
+        }
+    </script>
+
+    <script>
+        function reset(){
+            $.ajax({
+                type:'POST',
+                url: '{% url 'reset' %}',
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(param123){
+                    console.log("Yahoo!");
+                    dict1 = JSON.parse(param123);
+                    let data = dict1.data;
+                    let l1 = dict1.list1;
+                    let l2 = dict1.list2;
+                    let l3 = dict1.list3;
+                    let l4 = dict1.list4;
+                    let ctn = dict1.ctn;
+                    let res = dict1.result;
+                    var count = 0;
+                    var count1 = 0;
+                    console.log(data)
+                    table = document.getElementById("x");
+                    table1 = document.getElementById("z");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data[count];
+                            count++;
+                        }
+                    }
+                    for(var k = 2; k<table1.rows.length; k++){
+                        for(var l = 1; l<table1.rows[k].cells.length; l++){
+                            if(l == 1)
+                                table1.rows[k].cells[l].innerHTML = l1[count1];
+                            if(l == 2)
+                                table1.rows[k].cells[l].innerHTML = l2[count1];
+                            if(l == 3)
+                                table1.rows[k].cells[l].innerHTML = l3[count1];
+                            if(l == 4)
+                                table1.rows[k].cells[l].innerHTML = l4[count1];
+                        }
+                        count1 = count1 + 1;
+                    }
+                    button_tap(res);
+                    bbb(ctn);
+                },
+                error: function(){
+                    toastr.options = {
+                              "closeButton": false,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-full-width",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "1000",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                        };
+                    toastr.error('Error is occurred','Error!');
+                }
+            });
+        }
+    </script>
+
+    <script type="text/javascript" src="{% static 'simulator_button_ajax.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
@@ -608,9 +2199,9 @@ The main Purpose of making this simulator is to get familiar with RISC-V ISA(Ins
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     <script>
         $(document).ready(function () {
-            $("#hd").show();
+            $("#hd").hide();
             $("#hd1").hide();
-            $("#hd2").hide();
+            $("#hd2").show();
         });
     </script>
     <script>
@@ -646,33 +2237,102 @@ The main Purpose of making this simulator is to get familiar with RISC-V ISA(Ins
                 });
 
         </script>
-  <!---- Script for adding line numbers--->
-  <script type="text/javascript">
-var lines = document.getElementById("divlines");
-var txtArea = document.getElementById("editline");
-window.onload = function() {
-    refreshlines();
-    txtArea.onscroll = function () {
-        lines.style.top = -(txtArea.scrollTop) + "px";
-        return true;
-    }
-    txtArea.onkeyup = function () {
-        refreshlines();
-        return true;
-    }
-}
+    <script>
+            $(document).ready(function () {
+                $("#ExI").show();
+                $("#ExM").hide();
+                $("#ExC").hide();
+            });
+        </script>
+    <script>
+                $(document).ready(function () {
 
-function refreshlines() {
-    var nLines = txtArea.value.split("\n").length;
-    lines.innerHTML = ""
-    for (i=1; i<=nLines; i++) {
-        lines.innerHTML = lines.innerHTML + i + "." + "<br />";
-    }
-    lines.style.top = -(txtArea.scrollTop) + "px";
-}
-</script>
+                    $("#I-button").on('click', function () {
+                        $("#ExI").show();
+                        $("#ExM").hide();
+                        $("#ExC").hide();
+                    });
+                });
+        </script>
+    <script>
+                    $(document).ready(function () {
+
+                        $("#M-button").on('click', function () {
+                            $("#ExI").hide();
+                            $("#ExM").show();
+                            $("#ExC").hide();
+                        });
+                    });
+
+        </script>
+    <script>
+                    $(document).ready(function () {
+
+                        $("#C-button").on('click', function () {
+                            $("#ExI").hide();
+                            $("#ExM").hide();
+                            $("#ExC").show();
+                        });
+                    });
+
+        </script>
+
     <script src="{% static 'Scripts/jquery-1.10.2.js' %}"></script>
     <script src="{% static 'Pack/JQ.js' %}"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
+        <!--[if lt IE 9]>
+    <script src="{% static 'js/html5shiv.js' %}"></script>
+    <script src="{% static 'js/respond.min.js' %}"></script>
+    <script src="{% static 'Scripts/linenum.js' %}"></script>
+  <![endif]-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="{% static 'oxygen.js' %}"></script>
+ <script src="{% static 'codemirror.js' %}"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+    var editor = document.getElementById("editline");
+    var codeMirror = CodeMirror.fromTextArea(editor,
+        {
+            lineNumbers: true,
+            mode: "riscv",
+            indentUnit: 4,
+            lint: true
+        }
+    );
+    codeMirror.setSize("100%", "88vh");</script>
+<script type="text/javascript">
+    var editor1 = document.getElementById("editline1");
+    var codeMirror1 = CodeMirror.fromTextArea(editor1,
+        {
+            lineNumbers: true,
+            mode: "riscv",
+            indentUnit: 4,
+            lint: true
+        }
+    );
+    codeMirror1.setSize("100%", "88vh");</script>
+<script type="text/javascript">
+    var editor2 = document.getElementById("editline2");
+    var codeMirror2 = CodeMirror.fromTextArea(editor2,
+        {
+            lineNumbers: true,
+            mode: "riscv",
+            indentUnit: 4,
 
+        }
+    );
+    codeMirror2.setSize("100%", "88vh");</script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script type="text/javascript" src="{% static 'display.js' %}"></script>
 </body>
 </html>
