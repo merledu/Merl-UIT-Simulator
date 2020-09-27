@@ -20,7 +20,6 @@ from . import Display_settings
 from . import Simulator_buttons
 from . import Display_Info
 urlpatterns = [
-    #url(r'^$', tview.home),
     url(r'^$', views.home),
     url(r'^displayI', Display_Info.Display_info_I, name='displayI'),
     url(r'^Mdisplay', Display_Info.Display_info_IM, name='Mdisplay'),
