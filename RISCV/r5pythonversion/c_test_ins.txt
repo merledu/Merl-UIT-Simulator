@@ -1,0 +1,9 @@
+c.addi x1,2
+c.li x9,3
+c.lui x6,4
+c.add x1,x2
+c.mv x3,x1
+c.addiw x8,5
+c.addw x8,x9
+c.sub x8,x9
+c.slli x3,2

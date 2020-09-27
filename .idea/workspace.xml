@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2057d859-dd8d-4732-8ec3-f68cb0f8c809" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion/Display_Info.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6776">
+              <caret line="1203" selection-start-line="1203" selection-end-line="1203" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#178#26510#0" />
+                <element signature="e#28508#32671#0" />
+                <element signature="e#35017#40107#0" />
+                <element signature="e#40146#42079#0" />
+                <element signature="e#42118#43472#0" />
+                <element signature="e#43512#44794#0" />
+                <element signature="e#44833#45778#0" />
+                <element signature="e#45818#46807#0" />
+                <element signature="e#46863#47427#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion/R_type.py">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state>
+              <caret line="298" column="13" lean-forward="true" selection-start-line="298" selection-start-column="13" selection-end-line="298" selection-end-column="13" />
+=======
+            <state relative-caret-position="22">
+              <caret line="1054" lean-forward="true" selection-start-line="1054" selection-end-line="1054" />
+>>>>>>> Ali
+=======
+            <state relative-caret-position="57">
+              <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+>>>>>>> Ali
+              <folding>
+                <element signature="e#447#2134#0" />
+                <element signature="e#2168#2354#0" />
+                <element signature="e#2391#3727#0" />
+                <element signature="e#3758#3915#0" />
+                <element signature="e#3951#4108#0" />
+                <element signature="e#4139#4296#0" />
+                <element signature="e#4328#4591#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>a2</find>
+      <find>param1</find>
+      <find>memory_list3</find>
+      <find>memory_list4</find>
+      <find>ins_number</find>
+      <find>hex</find>
+      <find>stack_register</find>
+      <find>=</find>
+      <find>file1</find>
+      <find>&lt;script&gt;</find>
+      <find>&lt;/script&gt;</find>
+      <find>Base.</find>
+      <find>views</find>
+      <find>Base</find>
+      <find>views.Base.code_line1</find>
+      <find>views.Base.data</find>
+      <find>str(views.Base.destination)</find>
+      <find>Lui is Running</find>
+      <find>Instruction_type</find>
+      <find>.S_type(</find>
+      <find>instructions.CI_type(</find>
+      <find>instructions.</find>
+      <find>re.findall(r'\d+', x)</find>
+      <find>views.Base.func4.append('0000')</find>
+      <find>ins_mem</find>
+      <find>label='SS</find>
+      <find>lui</find>
+      <find>u_ins</find>
+      <find>U</find>
+      <find>zero</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Base.list_column_4</replace>
+      <replace>Base.listkey</replace>
+      <replace>Base.reg_name</replace>
+      <replace>Base.memory_list4</replace>
+      <replace>Base.ins_number</replace>
+      <replace>views.Base.stack_register</replace>
+      <replace>=</replace>
+      <replace>views.Base</replace>
+      <replace>instructions.Instruction_type</replace>
+      <replace>CI_type.CI_type(</replace>
+      <replace>R_type.R_type(</replace>
+      <replace>re.findall(r'[+-]?\d+', x)</replace>
+      <replace>x0(zero)</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion/test.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="633" />
+    <option name="width" value="654" />
+    <option name="height" value="991" />
+  </component>
+  <component name="ProjectId" id="1SFKvPqYuURg7nQnQswwLwgvUku" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Milestone3 Structured 3.6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Milestone3 Structured 3.6" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\RISC V\FYP\Milestone3 structured 3.4\RISCV\r5pythonversion\static" />
+      <recent name="G:\RISC V\FYP\Milestone3 structured 3.3\RISCV\r5pythonversion\r5pythonversion" />
+      <recent name="G:\RISC V\FYP\Milestone3 only I\RISCV\r5pythonversion\static" />
+      <recent name="G:\RISC V\FYP\Milestone3 version 3.0\RISCV\r5pythonversion" />
+      <recent name="G:\RISC V\FYP\Milestone3 version 3.0\RISCV\r5pythonversion\templates" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.Interpreter">
+    <configuration name="Interpreter" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="RISCV MASTER VERSION 20" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion/Interpreter.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="M-Extension" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="RISCV MASTER VERSION 20" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="G:\RISC V\FYP\Milestone3 only I\RISCV\r5pythonversion\r5pythonversion\debug.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="conversion" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="RISCV MASTER VERSION 20" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="G:\RISC V\FYP\Milestone3 structured\RISCV\r5pythonversion\r5pythonversion\Display_settings.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="hex_to_assembly" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="RISCV MASTER VERSION 20" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion/hex_to_assembly.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="RISCV MASTER VERSION 20" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.conversion" />
+        <item itemvalue="Python.Interpreter" />
+        <item itemvalue="Python.M-Extension" />
+        <item itemvalue="Python.hex_to_assembly" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2057d859-dd8d-4732-8ec3-f68cb0f8c809" name="Default Changelist" comment="" />
+      <created>1574658843675</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574658843675</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+<<<<<<< HEAD
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="7" />
+=======
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+>>>>>>> Ali
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21860096" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion/debug.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="58" column="14" lean-forward="true" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion/Display_Info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6776">
+          <caret line="1203" selection-start-line="1203" selection-end-line="1203" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#178#26510#0" />
+            <element signature="e#28508#32671#0" />
+            <element signature="e#35017#40107#0" />
+            <element signature="e#40146#42079#0" />
+            <element signature="e#42118#43472#0" />
+            <element signature="e#43512#44794#0" />
+            <element signature="e#44833#45778#0" />
+            <element signature="e#45818#46807#0" />
+            <element signature="e#46863#47427#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion/R_type.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <folding>
+            <element signature="e#447#2134#0" />
+            <element signature="e#2168#2354#0" />
+            <element signature="e#2391#3727#0" />
+            <element signature="e#3758#3915#0" />
+            <element signature="e#3951#4108#0" />
+            <element signature="e#4139#4296#0" />
+            <element signature="e#4328#4591#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RISCV/r5pythonversion/r5pythonversion/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1054" lean-forward="true" selection-start-line="1054" selection-end-line="1054" />
+          <folding>
+            <element signature="n#!!doc" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

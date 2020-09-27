@@ -1,0 +1,305 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset=\"utf-8"\>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        <textarea id="t1" name="editor">{{c}}</textarea>
+        <br>
+
+        <button type="button" id="b1" onclick="calling();">press</button>
+        <button type="button" id="b2">undo</button>
+        <button type="button" id="b3">redo</button>
+    </form>
+    <select id="no_sys" onchange="number_system();">
+        <option value="dec">Decimal</option>
+        <option value="hex">Hex</option>
+        <option value="unsign">Unsigned</option>
+        <option value="ascii">ASCII</option>
+    </select>
+    <div class="row">
+         <table id="y" class="table">
+                            <thead class="thead">
+                                <tr style="background:#e6f5fe">
+                                  <th style="text-align:center; font-size:17px;" scope="col">PC</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Basic Code</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Type</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Imm-1</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Funct-7</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">rs2</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">rs1</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Funct-3</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">rd</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Imm-2</th>
+                                  <th style="text-align:center; font-size:17px;" scope="col">Opcode</th>
+                                </tr>
+                              </thead>
+                            <tbody id="test">
+                              {% for i,j,k,l,m,n,o,p,q,r,s in data3 %}
+                                <tr style="text-align:center; font-size:16px; font-family:Courier">
+                                  <td>{{i}}</td>
+                                  <td>{{j}}</td>
+                                  <td>{{k}}</td>
+                                  <td>{{l}}</td>
+                                  <td>{{m}}</td>
+                                  <td>{{n}}</td>
+                                  <td>{{o}}</td>
+                                  <td>{{p}}</td>
+                                  <td>{{q}}</td>
+                                  <td>{{r}}</td>
+                                  <td>{{s}}</td>
+                                </tr>
+                              {% endfor %}
+                            </tbody>
+                        </table>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <table id="x" class="table table-bordered table-dark table-striped mb-0">
+
+        <!--Actual Code With Loop-->
+
+        <tr style="background:#e6f5fe;">
+          <td>
+            <h3 style="text-decoration-line: underline; text-align:center; font-weight: bold;">Register Name</h3>
+          </td>
+          <td>
+            <h3 style="text-decoration-line: underline; text-align:center; font-weight: bold;">Register Value</h3>
+          </td>
+        </tr>
+          {% for i,j in data1 %}
+
+          <tr style="border-bottom:1px solid;">
+              <td style="text-align:center; font-size:19px;">{{i}}</td>
+              <td style="text-align:center;font-size:19px;">{{j}}</td>
+          </tr>
+
+          {%endfor%}
+
+    </table>
+        </div>
+        <div class="col-6">
+             <table id="z" class="table table-bordered table-dark table-striped mb-0">
+
+                        <!--Actual Code With Loop-->
+
+                        <tr style="background:#e6f5fe;">
+                          <td rowspan="2">
+                            <h4 style="text-decoration-line: underline; text-align:center; font-weight: bold;">Memory Address</h4>
+                          </td>
+                          <td colspan="4">
+                            <h4  style="text-decoration-line: underline; text-align:center; font-weight: bold;">Memory Value</h4>
+                          </td>
+                        </tr>
+                        <tr style="background:#e6f5fe; color:black; ">
+                          <th style="text-decoration-line: underline; text-align:center;">+0
+                          </th>
+                          <th style="text-decoration-line: underline; text-align:center;">+1
+                          </th>
+                          <th style="text-decoration-line: underline; text-align:center;">+2
+                          </th>
+                          <th style="text-decoration-line: underline; text-align:center;">+3
+                          </th>
+                        </tr>
+
+
+
+
+                          {% for k,l,m,n,o in data2 %}
+
+                          <tr style="border-bottom:1px solid;">
+                            <td style="text-align:center; font-size:14px; width:35%;">{{k}}</td>
+                            <td style="text-align:center;font-size:14px;">{{l}}</td>
+                            <td style="text-align:center;font-size:14px;">{{m}}</td>
+                            <td style="text-align:center;font-size:14px;">{{n}}</td>
+                            <td style="text-align:center;font-size:14px;">{{o}}</td>
+                          </tr>
+
+                          {%endfor%}
+
+                      </table>
+        </div>
+    </div>
+
+
+
+    {{c}}
+    <script type="text/javascript">
+        var app;
+        function calling(){
+            dict2 = JSON.parse(123);
+            t = JSON.parse(1256);
+            $.ajax({
+                type:'POST',
+                url: "{% url 'test' %}",
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(dict1){
+                    dict1 = JSON.parse(dict1);
+                    let data = dict1.data;
+                    app = dict1;
+                    var count = 0;
+                    var count1 = 0;
+                    console.log(data)
+                    table = document.getElementById("x");
+                    table1 = document.getElementById("z");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data[count];
+                            count++;
+                        }
+                    }
+                    for(var i = 2; i<table1.rows.length; i++){
+                        for(var j = 1; j<table1.rows[i].cells.length; j++){
+                            table1.rows[i].cells[1].innerHTML = 1;
+                            table1.rows[i].cells[2].innerHTML = 2;
+                            table1.rows[i].cells[3].innerHTML = 3;
+                            table1.rows[i].cells[4].innerHTML = 4;
+                            count1++;
+                        }
+                    }
+                },
+                error: function(dict1){
+                    alert(dict1.b);
+                }
+            });
+        }
+
+    </script>
+    <script type="text/javascript">
+        function number_system() {
+            var x = document.getElementById("no_sys").value;
+            if(x == "hex"){
+                  hex();
+            }
+            else if(x == "ascii"){
+                  ascii();
+            }
+            else if(x == "unsign"){
+                  unsign();
+            }
+            else{
+                  dec();
+            }
+        }
+    </script>
+
+    <script>
+        function hex(){
+            $.ajax({
+                type:'POST',
+                url: "{% url 'hex' %}",
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(hex_dict){
+                    hex_dict = JSON.parse(hex_dict);
+                    let data1 = hex_dict.val1
+                    var count = 0;
+                    console.log(data1)
+                    table = document.getElementById("x");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data1[count];
+                            count++;
+                        }
+                    }
+                },
+                error: function(){
+                    alert("sorry");
+                }
+            });
+        }
+    </script>
+    <script>
+        function dec(){
+            $.ajax({
+                type:'POST',
+                url: "{% url 'dec' %}",
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(dec_dict){
+                    dec_dict = JSON.parse(dec_dict);
+                    let data2 = dec_dict.val
+                    var count = 0;
+                    console.log(data2)
+                    table = document.getElementById("x");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data2[count];
+                            count++;
+                        }
+                    }
+                },
+                error: function(){
+                    alert("sorry");
+                }
+            });
+        }
+    </script>
+    <script>
+        function ascii(){
+            $.ajax({
+                type:'POST',
+                url: "{% url 'ascii' %}",
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(ascii_dict){
+                    ascii_dict = JSON.parse(ascii_dict);
+                    let data3 = ascii_dict.val2
+                    var count = 0;
+                    console.log(data3)
+                    table = document.getElementById("x");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data3[count];
+                            count++;
+                        }
+                    }
+                },
+                error: function(){
+                    alert("sorry");
+                }
+            });
+        }
+    </script>
+    <script>
+        function unsign(){
+            $.ajax({
+                type:'POST',
+                url: "{% url 'unsign' %}",
+                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function(un_dict){
+                    un_dict = JSON.parse(un_dict);
+                    let data4 = un_dict.val3
+                    var count = 0;
+                    console.log(data4)
+                    table = document.getElementById("x");
+                    for(var i = 1; i<table.rows.length; i++){
+                        for(var j = 1; j<table.rows[i].cells.length; j++){
+                            table.rows[i].cells[j].innerHTML = data4[count];
+                            count++;
+                        }
+                    }
+                },
+                error: function(){
+                    alert("sorry");
+                }
+            });
+        }
+    </script>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+</html>

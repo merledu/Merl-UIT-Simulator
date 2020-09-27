@@ -13,14 +13,29 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+
+from django.conf.urls import url
 from . import views
+from . import test
+from . import tview
+from . import Display_settings
+from . import Simulator_buttons
+from . import Display_Info
 urlpatterns = [
-    path('', views.index),
-    #path('', views.showmemory),
-    path('read/', views.read, name='read'),
-    path('simulator/', views.simulator, name='simulator'),
-    path('memory/',views.showmemory,name='memory'),
+    #url(r'^$', tview.home),
+    url(r'^$', views.home),
+    url(r'^displayI', Display_Info.Display_info_I, name='displayI'),
+    url(r'^Mdisplay', Display_Info.Display_info_IM, name='Mdisplay'),
+    url(r'^IMCdisplay', Display_Info.Display_info_IMC, name='IMCdisplay'),
+    url(r'^execute', Simulator_buttons.index, name='index'),
+    url(r'^step', Simulator_buttons.step_by_step, name='step'),
+    url(r'^reset', Simulator_buttons.reseting, name='reset'),
+    url(r'^prev', Simulator_buttons.prev, name='prev'),
+    url(r'^dump', Simulator_buttons.dump, name='dump'),
+    url(r'^dec', Display_settings.decimal, name='dec'),
+    url(r'^hex', Display_settings.hex, name='hex'),
+    url(r'^unsign', Display_settings.unsigned, name='unsign'),
+    url(r'^ascii', Display_settings.ascii, name='ascii'),
+    url(r'^test', tview.test_view, name='test'),
 
 ]

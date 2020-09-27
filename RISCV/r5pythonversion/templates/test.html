@@ -1,67 +1,98 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load static %}
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Untitled Page</title>
-    <style type="text/css">
-        #containernum
-{
-	width: 50px;
-	float: left;
-	color: Gray;
-	font-family: Courier New;
-	font-size: 20px;
-	overflow: hidden;
-	height: 600px;
-    position: relative;
-    top: 5px;
-}
-#divlines
-{
-	position: absolute;
-}
-#edit_area
-{
-	overflow-x: scroll;
-	height: 99px;
-	font-family: Courier New;
-	font-size: 20px;
-}
-    </style>
+	<meta charset="UTF-8">
+	<title>Backbone.Undo sample</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			line-height: 140%;
+		}
+		#centered {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -180px;
+			margin-top: -120px;
+		}
+	</style>
 </head>
 <body>
-<div id="containernum">
-<div id="divlines">
-</div>
-</div>
-<textarea id="edit_area" name="editor" style="width:80%; height:600px;" rows="100" placeholder="Write Code...... ">{{ code }}</textarea><br>
+	<ol id="centered">
+		<li>
+			<button id="start">startTracking</button><button id="stop">stopTracking</button>
+			<p>Changes are currently <strong id="trackingState"></strong></p>
+		</li>
+		<li>
+			<input type="text" id="input" value="foo" /><button id="set">set</button>
+		</li>
+		<li>
+			<p>Number of undo-actions in the action-stack: <strong id="stacklength">0</strong></p>
+			<button id="undo">undo</button><button id="redo">redo</button>
+		</li>
+	</ol>
+	<ol>
+		<li>Click <em>startTracking</em> to start tracking changes</li>
+		<li>Enter different values into the input field and call <em>set</em> each time</li>
+		<li>Click <em>undo</em> or <em>redo</em> to undo/redo your changes</li>
+	</ol>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
+
+	<script src="static/underscore.js"></script>
+	<script src="static/backbone.js"></script>
+
+	<script src="static/Backbone.Undo.js"></script>
 
 
-<script type="text/javascript">
-var lines = document.getElementById("divlines");
-var txtArea = document.getElementById("edit_area");
-window.onload = function() {
-    refreshlines();
-    txtArea.onscroll = function () {
-        lines.style.top = -(txtArea.scrollTop) + "px";
-        return true;
-    }
-    txtArea.onkeyup = function () {
-        refreshlines();
-        return true;
-    }
-}
+	<script>
+		$(function () {
+			var model = new Backbone.Model({"value": "foo"}),
+			View = Backbone.View.extend({
+				initialize: function () {
+					// If the model's value changes, update the view
+					this.model.on("change:value", function (model, value, options) {
+						if (value != this.$el.val()) {
+							this.$el.val(value);
+						}
+					}, this);
+				}
+			})
+			view = new View({
+				model: model,
+				el: $("#input")
+			})
 
-function refreshlines() {
-    var nLines = txtArea.value.split("\n").length;
-    lines.innerHTML = ""
-    for (i=1; i<=nLines; i++) {
-        lines.innerHTML = lines.innerHTML + i + "." + "<br />";
-    }
-    lines.style.top = -(txtArea.scrollTop) + "px";
-}
-</script>
+			// If you click the set button, the model's value is changed
+			$("#set").on("click", function () {
+				model.set("value", $("#input").val());
+				$("#stacklength").text(undoManager.stack.length);
+			})
+
+			// Now: The undo/redo part
+
+			var undoManager = new Backbone.UndoManager;
+			undoManager.register(model);
+
+			$("#start").on("click", function () {
+				undoManager.startTracking();
+				$("#trackingState").text("tracked");
+			})
+			$("#stop").on("click", function () {
+				undoManager.stopTracking();
+				$("#trackingState").text("not tracked");
+			}).click();
+			$("#undo").on("click", function () {
+				undoManager.undo();
+			})
+			$("#redo").on("click", function () {
+				undoManager.redo();
+			})
+		})
+	</script>
 </body>
-</html>
 
+</html>
 

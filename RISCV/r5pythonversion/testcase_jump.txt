@@ -1,0 +1,18 @@
+addi x1,x0,2
+jal label
+addi x2,x0,4
+label1:
+slt x2,x1,x2
+add x3,x2,x3
+jal label1
+sub x3,x4,x5
+sw x2,5(x0)
+label:
+ori x17,x14,4
+andi x16,x13,3
+xori x15,x12,2
+slli x14,x1,2
+srli x13,x1,3
+srai x12,x2,2
+lui x13,1
+jalr x0,x5,20
