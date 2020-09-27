@@ -787,7 +787,7 @@ def Display_info_IM(request):
     print(views.Base.code_line1)
     p_counter = 0
     for i in range(len(views.Base.code_line1)):
-        if views.Base.data[i][0] in i_ins or views.Base.data[i][0] in uj_ins or views.Base.data[i][0] in u_ins or views.Base.data[i][0] in sb_ins or views.Base.data[i][0] in s_ins or views.Base.data[i][0] in r_ins:
+        if views.Base.data[i][0] in i_ins or views.Base.data[i][0] in uj_ins or views.Base.data[i][0] in u_ins or views.Base.data[i][0] in sb_ins or views.Base.data[i][0] in s_ins or views.Base.data[i][0] in r_ins or views.Base.data[i][0] in mr_ins:
             views.Base.pc.append('0x' + '{0:01X}'.format(p_counter * 4))
             print(views.Base.pc)
             bits.append(32)
