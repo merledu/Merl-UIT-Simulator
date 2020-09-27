@@ -16,8 +16,6 @@ Including another URLconf
 
 from django.conf.urls import url
 from . import views
-from . import test
-from . import tview
 from . import Display_settings
 from . import Simulator_buttons
 from . import Display_Info
@@ -36,6 +34,5 @@ urlpatterns = [
     url(r'^hex', Display_settings.hex, name='hex'),
     url(r'^unsign', Display_settings.unsigned, name='unsign'),
     url(r'^ascii', Display_settings.ascii, name='ascii'),
-    url(r'^test', tview.test_view, name='test'),
 
 ]

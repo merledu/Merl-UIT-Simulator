@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a52d805-3cc4-4f72-a3b0-cadacfd329e9" name="Default Changelist" comment="" />
+    <list default="true" id="6a52d805-3cc4-4f72-a3b0-cadacfd329e9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ali.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/assets/venus.js" beforeDir="false" afterPath="$PROJECT_DIR$/r5pythonversion/assets/oxygen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/r5pythonversion/Display_Info_IMC.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/r5pythonversion/Display_info.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/r5pythonversion/Dump.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/r5pythonversion/System's DFA.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/r5pythonversion/file1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/r5pythonversion/fsm.gv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/r5pythonversion/hex_to_assembly.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/r5pythonversion/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/r5pythonversion/tview.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/r5pythonversion/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/r5pythonversion/r5pythonversion/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/static/venus.js" beforeDir="false" afterPath="$PROJECT_DIR$/r5pythonversion/static/oxygen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/r5pythonversion/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/templates/t.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/templates/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/r5pythonversion/templates/test1.html" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,11 +229,6 @@
           <url>file://$PROJECT_DIR$/r5pythonversion/r5pythonversion/test.py</url>
           <line>463</line>
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/r5pythonversion/r5pythonversion/hex_to_assembly.py</url>
-          <line>44</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
