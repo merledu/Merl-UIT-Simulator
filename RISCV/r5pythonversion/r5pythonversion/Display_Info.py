@@ -532,10 +532,10 @@ def Display_info_I(request):
 
     ##### This Is Memory Block START
     ###When using Online web
-    # file_values=open("/home/OxygenUIT/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
+    file_values=open("/home/merloxygen/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
     ###when using dedicated machine(PC)
 
-    file_values = open("templates\m.txt", "r")
+    # file_values = open("templates\m.txt", "r")
     # print(file_values.readable())
     list = []
     for x in range(0, 512):
@@ -1166,10 +1166,10 @@ def Display_info_IM(request):
 
     ##### This Is Memory Block START
     ###When using Online web
-    # file_values=open("/home/OxygenUIT/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
+    file_values=open("/home/merloxygen/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
     ###when using dedicated machine(PC)
 
-    file_values = open("templates\m.txt", "r")
+    # file_values = open("templates\m.txt", "r")
     # print(file_values.readable())
     list = []
     for x in range(0, 512):
@@ -1562,7 +1562,7 @@ def Display_info_IMC(request):
 
 
         elif m in r_ins:
-            
+
             views.Base.ins_type.append('R')
             half_ins = re.findall(r'[+-]?\d+', x)
             dest = half_ins[0]
@@ -1607,7 +1607,7 @@ def Display_info_IMC(request):
                         views.Base.opcode[i]))
 
         elif m in sb_ins:
-            
+
             views.Base.ins_type.append('SB')
             half_ins = re.findall(r'[+-]?\d+', x)
             src1 = half_ins[0]
@@ -1638,7 +1638,7 @@ def Display_info_IMC(request):
             # ins_mem.append(str(views.Base.immediate1[i]) + str(views.Base.source2[i]) + str(views.Base.source1[i]) + str(views.Base.func3[i]) + str(views.Base.immediate2[i]) + str(views.Base.opcode[i]))
 
         elif m in s_ins:
-            
+
             views.Base.ins_type.append('S')
             half_ins = re.findall(r'[+-]?\d+', x)
             src1 = half_ins[2]
@@ -1695,7 +1695,7 @@ def Display_info_IMC(request):
             ins_mem.append(str(views.Base.immediate1[i]) + str(views.Base.destination[i]) + str(views.Base.opcode[i]))
 
         elif m in uj_ins:
-            
+
             views.Base.ins_type.append('UJ')
             half_ins = re.findall(r'[+-]?\d+', x)
             # dest = half_ins[0]
@@ -2454,10 +2454,10 @@ def Display_info_IMC(request):
 
     ##### This Is Memory Block START
     ###When using Online web
-    # file_values=open("/home/OxygenUIT/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
+    file_values=open("/home/merloxygen/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
     ###when using dedicated machine(PC)
 
-    file_values = open("templates\m.txt", "r")
+    # file_values = open("templates\m.txt", "r")
     # print(file_values.readable())
     list = []
     for x in range(0, 512):

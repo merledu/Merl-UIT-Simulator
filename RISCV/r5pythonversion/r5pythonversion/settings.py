@@ -25,7 +25,7 @@ SECRET_KEY = ')8*bje($#%v#v+=p^hq-7q!*unli=&u)wn1eto+%70-kbn8w!u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['merloxygen.pythonanywhere.com']
 
 
 # Application definition
@@ -50,11 +50,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'r5pythonversion.urls'
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [TEMPLATE_PATH],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,7 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = '/home/merloxygen/Merl-UIT-Simulator/RISCV/r5pythonversion/static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
