@@ -133,7 +133,8 @@ class R_type(instructions.Instruction_type):
 
         self.src1 = self.src1[1:]
         self.src2 = self.src2[1:]
-        self.dest = self.dest[1:]
+        temp = self.dest.find("x")
+        self.dest = self.dest[temp+1:]
 
         self.indexs1 = int(self.src1)
         self.indexs2 = int(self.src2)
@@ -215,7 +216,9 @@ class R_type(instructions.Instruction_type):
 
     def adder(self):
         temp = self.val[self.indexs1]
+        print(temp)
         temp1 = self.val[self.indexs2]
+        print(temp1)
         temp = temp + temp1
         self.val[self.indexd] = temp
         print(self.val)

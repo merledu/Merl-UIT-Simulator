@@ -56,4 +56,3 @@ class SB_type(Instruction_type):
         if self.val[self.op1] >= abs(self.val[self.op2]):
             return True
         return False
-

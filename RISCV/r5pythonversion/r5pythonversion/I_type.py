@@ -3,7 +3,7 @@ from .instructions import Instruction_type
 
 class I_type(Instruction_type):
     remi = False
-    subi = False
+    subw = False
     addi = False
     divi = False
     muli = False
@@ -23,9 +23,9 @@ class I_type(Instruction_type):
             self.addi = True
             x = x[len(y) + 1:]
             return x
-        elif "subi" in x:
-            y = "subi"
-            self.subi = True
+        elif "subw" in x:
+            y = "subw"
+            self.subw = True
             x = x[len(y) + 1:]
             return x
         elif "muli" in x:
@@ -154,7 +154,7 @@ class I_type(Instruction_type):
 
         if self.addi:
             self.adderi()
-        elif self.subi:
+        elif self.subw:
             self.subtractori()
         elif self.muli:
             self.multii()

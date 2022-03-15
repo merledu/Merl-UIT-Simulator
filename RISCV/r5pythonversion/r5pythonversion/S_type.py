@@ -5,7 +5,7 @@ class S_type(Instruction_type):
     storew = False
 
     def getoperators(self, x):
-
+        print(x)
         if "sw" in x:
             y = "sw"
             self.storew = True

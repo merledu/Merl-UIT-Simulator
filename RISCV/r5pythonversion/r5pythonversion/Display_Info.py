@@ -532,7 +532,7 @@ def Display_info_I(request):
 
     ##### This Is Memory Block START
     ###When using Online web
-    file_values=open("/home/merloxygen/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
+    file_values=open("/home/hrq/merloxygen/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
     ###when using dedicated machine(PC)
 
     # file_values = open("templates\m.txt", "r")
