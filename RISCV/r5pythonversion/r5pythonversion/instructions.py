@@ -86,7 +86,7 @@ class Instruction_type(object):
         mydix[hex(x)] = list[x]
         # print(mydix)
 
-    # Need To Be Updat
+    # Need To Be Update
     listkey = []
     # *mydix
 
