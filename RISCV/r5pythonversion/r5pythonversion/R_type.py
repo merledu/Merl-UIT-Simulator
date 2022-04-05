@@ -400,7 +400,8 @@ class R_type(instructions.Instruction_type):
 
     def srloperator(self):
         temp = self.val[self.indexs1]
-        temp = temp + (2 ** 32)
+        temp = temp + 0
+        #temp = temp + (2 ** 32)
         temp1 = self.val[self.indexs2]
         temp = temp >> temp1
         self.val[self.indexd] = temp

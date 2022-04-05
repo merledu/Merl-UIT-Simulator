@@ -434,8 +434,8 @@ def execute(whole_code):
         elif m in sb_ins:
             views.Base.error = ""
             sb_type.append(SB_type.SB_type())
-            sb_type[count_sb].split_inst(x)
-            temp, label = sb_type[count_sb].op_select()
+            #sb_type[count_sb].split_inst(x)
+            temp, label = sb_type[count_sb].op_select(x)
             count_sb += 1
             views.Base.nxt = views.Base.vari + 1
             pc += 4

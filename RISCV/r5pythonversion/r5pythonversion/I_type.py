@@ -3,7 +3,7 @@ from .instructions import Instruction_type
 
 class I_type(Instruction_type):
     remi = False
-    subw = False
+    #subw = False
     addi = False
     divi = False
     muli = False
@@ -18,76 +18,93 @@ class I_type(Instruction_type):
     sltimmu = False  # Set less than immediate unsigned
 
     def getoperatori(self, x):
-        if "addi" in x:
+        temp = x.find(" ")
+        temp = x[:4]
+        
+        if "addi" == temp:
             y = "addi"
             self.addi = True
             x = x[len(y) + 1:]
             return x
-        elif "subw" in x:
-            y = "subw"
-            self.subw = True
-            x = x[len(y) + 1:]
-            return x
-        elif "muli" in x:
+        
+        # elif "subw" == temp:
+        #     y = "subw"
+        #     self.subw = True
+        #     x = x[len(y) + 1:]
+        #     return x
+
+        elif "muli" == temp:
             y = "muli"
             self.muli = True
             x = x[len(y) + 1:]
             return x
-        elif "divi" in x:
+
+        elif "divi" == temp:
             y = "divi"
             self.divi = True
             x = x[len(y) + 1:]
             return x
-        elif "remi" in x:
+
+        elif "remi" == temp:
             y = "remi"
             self.remi = True
             x = x[len(y) + 1:]
             return x
-        elif "lw" in x:
+
+        elif "lw" == temp:
             y = "lw"
             self.load = True
             x = x[len(y) + 1:]
             return x
+
         elif "ori" in x:
             y = "ori"
             self.Ori = True
             x = x[len(y) + 1:]
             return x
-        elif "andi" in x:
+
+        elif "andi" == temp:
             y = "andi"
             self.Andi = True
             x = x[len(y) + 1:]
             return x
-        elif "xori" in x:
-            y = "xor"
+
+        elif "xori" == temp:
+            y = "xori"
             self.Xori = True
             x = x[len(y) + 1:]
             return x
-        elif "slli" in x:
+
+        elif "slli" == temp:
             y = "slli"
             self.llshifti = True
             x = x[len(y) + 1:]
             return x
-        elif "srli" in x:
+        
+        elif "srli" == temp:
             y = "srli"
             self.rlshifti = True
             x = x[len(y) + 1:]
             return x
-        elif "srai" in x:
+        
+        elif "srai" == temp:
             y = "srai"
             self.rashifti = True
             x = x[len(y) + 1:]
             return x
-        elif "sltiu" in x:
+        
+        elif "sltiu" == temp:
             y = "sltiu"
             self.sltimmu = True
             x = x[len(y) + 1:]
             return x
-        elif "slti" in x:
+        
+        elif "slti" == temp:
             y = "slti"
             self.sltimm = True
             x = x[len(y) + 1:]
             return x
+        
         else:
             return x
 
@@ -106,10 +123,8 @@ class I_type(Instruction_type):
 
         self.dest, self.src1 = x.split(",")
 
-        #
         counter = 0
         a = self.src1
-        # print(a)
 
         for x1 in a:
             if (x1 == 'x' or counter == 1):
@@ -130,10 +145,6 @@ class I_type(Instruction_type):
     def getexecute(self):
 
         print(self.val)
-        # self.src1 = self.src1[1:]
-        # self.src1 = self.src1[2:]
-        # print(self.src1)
-
         self.src1 = self.src1[self.offset_shitf:]
         self.dest = self.dest[1:]
 
@@ -141,7 +152,6 @@ class I_type(Instruction_type):
             self.offset_val = int(self.offset)
             print(self.offset_val)
             self.indexs1 = int(self.src1)
-            # self.indexs1 = int(self.src1)
             self.indexd = int(self.dest)
         else:
             self.indexs1 = int(self.src1)
@@ -154,8 +164,8 @@ class I_type(Instruction_type):
 
         if self.addi:
             self.adderi()
-        elif self.subw:
-            self.subtractori()
+        # elif self.subw:
+        #     self.subtractori()
         elif self.muli:
             self.multii()
         elif self.divi:
@@ -191,12 +201,12 @@ class I_type(Instruction_type):
         self.val[self.indexd] = temp
         print(self.val)
 
-    def subtractori(self):
-        temp = self.val[self.indexs1]
-        temp1 = self.indexs2
-        temp = temp - temp1
-        self.val[self.indexd] = temp
-        print(self.val)
+    # def subtractori(self):
+    #     temp = self.val[self.indexs1]
+    #     temp1 = self.indexs2
+    #     temp = temp - temp1
+    #     self.val[self.indexd] = temp
+    #     print(self.val)
 
     def multii(self):
         temp = self.val[self.indexs1]

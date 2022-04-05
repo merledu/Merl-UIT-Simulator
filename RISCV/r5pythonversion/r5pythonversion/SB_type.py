@@ -13,8 +13,9 @@ class SB_type(Instruction_type):
         ins = ins.replace(',', ' ')
         self.ins_word = ins.split()
         return self.ins_word
-    def op_select(self):
-        #self.ins_word = self.split_inst(ins)
+        
+    def op_select(self,x):
+        self.ins_word = self.split_inst(x)
         self.rs1 = self.ins_word[1]
         self.op1 = int(self.rs1[1:])
         self.rs2 = self.ins_word[2]
