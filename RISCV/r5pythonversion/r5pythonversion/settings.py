@@ -26,6 +26,8 @@ SECRET_KEY = ')8*bje($#%v#v+=p^hq-7q!*unli=&u)wn1eto+%70-kbn8w!u'
 DEBUG = True
 
 ALLOWED_HOSTS = ['merloxygen.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
 
 # Application definition
