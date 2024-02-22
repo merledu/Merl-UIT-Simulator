@@ -14,24 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.conf.urls import url
+# from django.conf.urls import url
+from django.urls import include, re_path
 from . import views
 from . import Display_settings
 from . import Simulator_buttons
 from . import Display_Info
 urlpatterns = [
-    url(r'^$', views.home),
-    url(r'^displayI', Display_Info.Display_info_I, name='displayI'),
-    url(r'^Mdisplay', Display_Info.Display_info_IM, name='Mdisplay'),
-    url(r'^IMCdisplay', Display_Info.Display_info_IMC, name='IMCdisplay'),
-    url(r'^execute', Simulator_buttons.index, name='index'),
-    url(r'^step', Simulator_buttons.step_by_step, name='step'),
-    url(r'^reset', Simulator_buttons.reseting, name='reset'),
-    url(r'^prev', Simulator_buttons.prev, name='prev'),
-    url(r'^dump', Simulator_buttons.dump, name='dump'),
-    url(r'^dec', Display_settings.decimal, name='dec'),
-    url(r'^hex', Display_settings.hex, name='hex'),
-    url(r'^unsign', Display_settings.unsigned, name='unsign'),
-    url(r'^ascii', Display_settings.ascii, name='ascii'),
+    re_path(r'^$', views.home),
+    re_path(r'^displayI', Display_Info.Display_info_I, name='displayI'),
+    re_path(r'^Mdisplay', Display_Info.Display_info_IM, name='Mdisplay'),
+    re_path(r'^IMCdisplay', Display_Info.Display_info_IMC, name='IMCdisplay'),
+    re_path(r'^execute', Simulator_buttons.index, name='index'),
+    re_path(r'^step', Simulator_buttons.step_by_step, name='step'),
+    re_path(r'^reset', Simulator_buttons.reseting, name='reset'),
+    re_path(r'^prev', Simulator_buttons.prev, name='prev'),
+    re_path(r'^dump', Simulator_buttons.dump, name='dump'),
+    re_path(r'^dec', Display_settings.decimal, name='dec'),
+    re_path(r'^hex', Display_settings.hex, name='hex'),
+    re_path(r'^unsign', Display_settings.unsigned, name='unsign'),
+    re_path(r'^ascii', Display_settings.ascii, name='ascii'),
 
 ]
