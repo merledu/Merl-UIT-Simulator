@@ -65,7 +65,7 @@ def home(request):
     # file_values=open("/home/OxygenUIT/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
     ###when using dedicated machine(PC)
 
-    file_values = open("templates\m.txt", "r")
+    file_values = open("/home/abdulrehman/Desktop/Oxegon/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt", "r")
     # print(file_values.readable())
     list = []
     for x in range(0, 512):
