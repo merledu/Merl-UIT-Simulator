@@ -15,26 +15,29 @@ After installing the python3 and pip, run below command in your cmd to install D
 
 
 
-```Next Go to
+```
+Next Go to
 RISCV/r5pythonversion/templates folder and copy the path of m.txt file
 ```
 
-```Go to
+```
+Go to
 RISCV/r5pythonversion/r5pythonversion/views.py
 ```
 
-```change the path
-RISCV/r5pythonversion/r5pythonversion/views.py
-
+```
+change the path
 file_values = open("/home/Desktop/Oxegon/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt", "r")
 replace with the path u copied
 ```
 
-```Next Go to
+```
+Next Go to
  RISCV/r5pythonversion folder and copy the path of m.txt file 
 ```
+```
+then go into
 
-```go into
 Display_Info.py file (RISCV/r5pythonversion/r5pythonversion/Display_Info.py)
 and change 
 file_values = open("/home/abdulrehman/Desktop/Oxegon/Merl-UIT-Simulator/RISCV/r5pythonversion/m.txt", "r")
