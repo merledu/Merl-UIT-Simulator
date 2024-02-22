@@ -15,13 +15,32 @@ After installing the python3 and pip, run below command in your cmd to install D
 
 
 
-Next Go into the RISCV/r5pythonversion/templates folder and copy the path of m.txt file
-Go into the RISCV/r5pythonversion/r5pythonversion/views.py file and change the path for the m.txt(The one we just copied) file according to your path file_values = open("/home/Desktop/Oxegon/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt", "r")
+```Next Go to
+RISCV/r5pythonversion/templates folder and copy the path of m.txt file
+```
 
-Go into the RISCV/r5pythonversion folder and copy the path of m.txt file 
-Next go into the Display_Info.py file (RISCV/r5pythonversion/r5pythonversion/Display_Info.py) and change 
+```Go to
+RISCV/r5pythonversion/r5pythonversion/views.py
+```
+
+```change the path
+RISCV/r5pythonversion/r5pythonversion/views.py
+
+file_values = open("/home/Desktop/Oxegon/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt", "r")
+replace with the path u copied
+```
+
+```Next Go to
+ RISCV/r5pythonversion folder and copy the path of m.txt file 
+```
+
+```go into
+Display_Info.py file (RISCV/r5pythonversion/r5pythonversion/Display_Info.py)
+and change 
 file_values = open("/home/abdulrehman/Desktop/Oxegon/Merl-UIT-Simulator/RISCV/r5pythonversion/m.txt", "r")
-to the path that you copied 
+to the path that you copied
+```
+
 
 
 Then just go to the /Merl-UIT-Simulator/RISCV.r5pythonversion, then run below commands to run django local server and after that the provided link by previous command, open in your browser.
