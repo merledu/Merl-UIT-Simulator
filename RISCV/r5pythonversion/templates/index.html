@@ -362,9 +362,12 @@ display: block;
   <!--/.preloader-->
 
   <header id="home">
+
+    <!-- starting of the background carousel div container-->
     <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="item active" style="background-image: url({% static 'images/p1.jpg' %})">
+        <div class="carousel-item active"> <!-- style="background-image: url({% static 'images/p1.jpg' %})"> --> <!-- I have commented this line since p1.jpg is not the background image and must slide before coming of next image -->
+          <img src={% static 'images/p1.jpg' %} class="d-block w-100" alt="...">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Welcome to <span>OXYGEN</span></h1>
             <h1 class="animated fadeInLeftBig"><span>BURAQ-IMC</span></h1>
@@ -372,14 +375,16 @@ display: block;
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#read">Start now</a>
           </div>
         </div>
-        <div class="item" style="background-image: url({% static 'images/p3.jpg' %})">
+        <div class="carousel-item"> <!-- style="background-image: url({% static 'images/p3.jpg' %})"> -->
+          <img src={% static 'images/p3.jpg' %} class="d-block w-100" alt="...">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Say Hello to <span>Oxygen</span></h1>
             <p class="animated fadeInRightBig">UIT-Edition RISC-V(BURAQ-RV32I) SIMULATOR</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#read">Start now</a>
           </div>
         </div>
-        <div class="item" style="background-image: url({% static 'images/p2.jpg' %})">
+        <div class="carousel-item"> <!-- style="background-image: url({% static 'images/p2.jpg' %})"> -->
+          <img src={% static 'images/p2.jpg' %} class="d-block w-100" alt="...">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">We are <span>MERL-UIT</span></h1>
             <p class="animated fadeInRightBig">UIT-Edition RISC-V(BURAQ-RV32I) SIMULATOR</p>
@@ -391,8 +396,8 @@ display: block;
       <a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
 
       <a id="tohash" href="#read"><i class="fa fa-angle-down"></i></a>
-
     </div><!--/#home-slider-->
+
     <div class="main-nav">
       <div class="container-fluid">
         <div class="navbar-header">
