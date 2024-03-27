@@ -3,6 +3,7 @@ from django.shortcuts import render
 from . import instructions
 from . import Interpreter
 from . import InterpreterIM
+import os
 
 class Base:
     param = {}
@@ -62,7 +63,10 @@ def home(request):
 
     ##### This Is Memory Block START
     ###When using Online web
-    file_values=open("/home/merloxygen/Merl-UIT-Simulator/RISCV/r5pythonversion/templates/m.txt","r")
+    current_directory = os.path.dirname(os.path.realpath(__file__))
+    file_path = os.path.join(current_directory, '..', 'templates/m.txt')
+    # file_path = os.path.join(templates_path, "m.txt")
+    file_values=open(file_path,"r")
     ###when using dedicated machine(PC)
 
     # file_values = open("templates\m.txt", "r")
